@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="说明长 prompt prefill 切块、decode attention block 切分，以及 softmax/LSE merge 正确性。">
+  <title>Chunked Prefill 与 Flash Decoding · llm_memory</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="article">
+  <header class="site-header">
+    <a class="site-brand" href="../index.html">
+      <span>llm_memory</span>
+      <small>AI Infra 中文 Blog</small>
+    </a>
+    <nav class="top-nav">
+      <a class="" href="../index.html">首页</a><a class=" active" href="../index.html#topics">主题</a><a class="" href="../index.html#systems">系统</a><a class="" href="../sources/classified-index.html">源文档</a><a class="" href="../log.html">维护日志</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    
+      <div class="post-shell">
+        <article class="post">
+          <header class="post-header">
+            <a class="post-category" href="../index.html#topics">主题文章</a>
+            <h1>Chunked Prefill 与 Flash Decoding</h1>
+            <p>说明长 prompt prefill 切块、decode attention block 切分，以及 softmax/LSE merge 正确性。</p>
+            <div class="post-meta">
+              <span>2026-05-28</span>
+              <span>wiki/topics/chunked-prefill-flash-decoding.md</span>
+              <a href="../sources/classified-index.html">分层索引</a><a href="../sources/catalog.html">源文件目录</a>
+            </div>
+            <div class="term-row"><code>Chunked Prefill</code><code>Flash Decoding</code><code>LSE merge</code></div>
+          </header>
+          <div class="body-label">中文正文（保留英文术语）</div>
+          <div class="markdown"><h2>摘要</h2>
+<p>说明长 prompt prefill 切块、decode attention block 切分，以及 softmax/LSE merge 正确性。</p>
+<h2>中文正文</h2>
+<ul>
+<li>Chunked Prefill 把长 prompt 拆成多个可调度片段，使长上下文请求不再独占一次完整 prefill step。</li>
+<li>Flash Decoding 把 decode attention 按 KV block 切分并合并 softmax/LSE，核心要求是数值正确性和 block 合并顺序稳定。</li>
+<li>这两类优化都改变 scheduler 的工作单位：调度器需要感知 prompt chunk、decode block、KV budget 和 partial progress。</li>
+<li>长上下文场景下，收益来自减少尾部阻塞、提升 batch 混合能力、降低单请求对显存和调度窗口的占用。</li>
+<li>风险主要在边界条件：mask、position、LSE merge、KV block 生命周期和失败重试都必须和普通 prefill/decode 保持一致。</li>
+</ul>
+<h2>阅读和维护建议</h2>
+<ul>
+<li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
+<li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
+<li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
+</ul>
+<h2>英文术语</h2>
+<ul>
+<li><code>Chunked Prefill</code></li>
+<li><code>Flash Decoding</code></li>
+<li><code>LSE merge</code></li>
+</ul>
+<h2>来源说明</h2>
+<ul>
+<li><code>lark_docs/ChunkedPrefill&amp;FlashDecoding原理.docx</code></li>
+</ul>
+</div>
+        </article>
+        <aside class="post-aside">
+          <div class="aside-block">
+            <label for="page-search">站内搜索</label>
+            <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
+          </div>
+          <div class="aside-block">
+            <h2>同类文章</h2>
+            <div class="aside-list"><a class="post-card compact-card" href="agentic-rl-infra.html" data-search="agentic rl 基础设施 agentic rl 基础设施 把 rollout、sandbox、tool calling、reward、training loop 和模型权重同步看成一个多角色运行时系统。 agentic rl rollout sandbox tool calling agentic-rl rollout sandbox verl swalm fornax">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Agentic RL 基础设施</strong>
+    <span>把 rollout、sandbox、tool calling、reward、training loop 和模型权重同步看成一个多角色运行时系统。</span>
+    <div class="term-row"><code>Agentic RL</code><code>rollout</code><code>sandbox</code></div>
+  </a>
+<a class="post-card compact-card" href="agentic-rl-training-frameworks.html" data-search="agentic rl 训练框架 agentic rl 训练框架 比较 verl、veomni、slime、alphaseed/swalm 在 rollout buffer、异步训练、model engine 和一致性协议上的差异。 verl veomni slime rollout buffer agentic-rl rollout verl veomni slime alphaseed">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Agentic RL 训练框架</strong>
+    <span>比较 verl、VeOmni、Slime、Alphaseed/Swalm 在 rollout buffer、异步训练、Model Engine 和一致性协议上的差异。</span>
+    <div class="term-row"><code>verl</code><code>VeOmni</code><code>Slime</code></div>
+  </a>
+<a class="post-card compact-card" href="deepep-stepmesh-communication.html" data-search="deepep 与 stepmesh 通信 deepep 与 stepmesh 通信 梳理 ep dispatch/combine、all-to-all、nvshmem/rdma、stepmesh m2n、a/f 分离和 collective 基础。 deepep stepmesh rdma all-to-all deepep stepmesh rdma nvshmem all-to-all communication">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>DeepEP 与 StepMesh 通信</strong>
+    <span>梳理 EP dispatch/combine、All-to-All、NVSHMEM/RDMA、StepMesh M2N、A/F 分离和 collective 基础。</span>
+    <div class="term-row"><code>DeepEP</code><code>StepMesh</code><code>RDMA</code></div>
+  </a>
+<a class="post-card compact-card" href="deepseek-mla-moe-performance.html" data-search="deepseek mla/moe 性能建模 deepseek mla/moe 性能建模 面向 deepseek-style serving 的模型形状、mla kv、ep/eplb、硬件和网络 bound 推理性能分析。 deepseek mla moe eplb deepseek mla moe performance-modeling eplb fp8">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>DeepSeek MLA/MoE 性能建模</strong>
+    <span>面向 DeepSeek-style serving 的模型形状、MLA KV、EP/EPLB、硬件和网络 bound 推理性能分析。</span>
+    <div class="term-row"><code>DeepSeek</code><code>MLA</code><code>MoE</code></div>
+  </a>
+<a class="post-card compact-card" href="flashmla-ulysses-sptp.html" data-search="flashmla 与 ulysses/sptp flashmla 与 ulysses/sptp 关注 mla decode kernel、hopper 调度、kv paging、ulysses 序列并行和 mla prefill 负载均衡。 flashmla ulysses sptp hopper flashmla mla ulysses sptp hopper sequence-parallelism">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>FlashMLA 与 Ulysses/SPTP</strong>
+    <span>关注 MLA decode kernel、Hopper 调度、KV paging、Ulysses 序列并行和 MLA prefill 负载均衡。</span>
+    <div class="term-row"><code>FlashMLA</code><code>Ulysses</code><code>SPTP</code></div>
+  </a>
+<a class="post-card compact-card" href="hardware-cluster-networking.html" data-search="硬件与集群网络 硬件与集群网络 覆盖 gpu/npu 资源池、ib/rdma、拓扑亲和、scale-up/scale-out、训练/推理流量和硬件性能建模。 gpu npu ib rdma gpu npu rdma ib networking topology cluster">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>硬件与集群网络</strong>
+    <span>覆盖 GPU/NPU 资源池、IB/RDMA、拓扑亲和、scale-up/scale-out、训练/推理流量和硬件性能建模。</span>
+    <div class="term-row"><code>GPU</code><code>NPU</code><code>IB</code></div>
+  </a>
+<a class="post-card compact-card" href="heterogeneous-serving.html" data-search="异构推理服务 异构推理服务 把 npu/gpu、cpu/gpu、vlm encoder、diffusion dag 等不同硬件/角色边界统一成 serving 架构问题。 heterogeneous serving cpu/gpu npu/gpu vlm encoder heterogeneous-serving gpu npu cpu vlm pd-disaggregation">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>异构推理服务</strong>
+    <span>把 NPU/GPU、CPU/GPU、VLM encoder、diffusion DAG 等不同硬件/角色边界统一成 serving 架构问题。</span>
+    <div class="term-row"><code>heterogeneous serving</code><code>CPU/GPU</code><code>NPU/GPU</code></div>
+  </a>
+<a class="post-card compact-card" href="inference-optimization.html" data-search="推理优化方法谱系 推理优化方法谱系 按 prefill/decode 差异组织推理优化：token 减少、量化、kv 复用、投机解码、架构优化、服务层调度和硬件并行。 prefill decode quantization speculative decoding inference optimization quantization speculative-decoding token-compression">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>推理优化方法谱系</strong>
+    <span>按 prefill/decode 差异组织推理优化：token 减少、量化、KV 复用、投机解码、架构优化、服务层调度和硬件并行。</span>
+    <div class="term-row"><code>prefill</code><code>decode</code><code>quantization</code></div>
+  </a></div>
+          </div>
+          <div class="aside-block">
+            <h2>发布</h2>
+            <p>本页由纯静态 HTML 生成，可直接部署到 GitHub Pages。</p>
+            <a class="inline-link" href="../README.html">查看构建与发布说明</a>
+          </div>
+        </aside>
+      </div>
+    
+  </main>
+  <footer class="site-footer">
+    <span>llm_memory</span>
+    <span>中文主叙述 · 英文术语保留 · GitHub Pages ready</span>
+  </footer>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

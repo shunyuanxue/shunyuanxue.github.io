@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="概览整个知识库的主题重心：推理服务、Agentic RL、多角色编排、可靠性、GPU/NPU 网络和生成式服务治理。">
+  <title>AI Infra 总览 · llm_memory</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="article">
+  <header class="site-header">
+    <a class="site-brand" href="index.html">
+      <span>llm_memory</span>
+      <small>AI Infra 中文 Blog</small>
+    </a>
+    <nav class="top-nav">
+      <a class="" href="index.html">首页</a><a class="" href="index.html#topics">主题</a><a class="" href="index.html#systems">系统</a><a class="" href="sources/classified-index.html">源文档</a><a class="" href="log.html">维护日志</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    
+      <div class="post-shell">
+        <article class="post">
+          <header class="post-header">
+            <a class="post-category" href="index.html#root">总览</a>
+            <h1>AI Infra 总览</h1>
+            <p>概览整个知识库的主题重心：推理服务、Agentic RL、多角色编排、可靠性、GPU/NPU 网络和生成式服务治理。</p>
+            <div class="post-meta">
+              <span>2026-05-28</span>
+              <span>wiki/overview.md</span>
+              <a href="sources/classified-index.html">分层索引</a><a href="sources/catalog.html">源文件目录</a>
+            </div>
+            <div class="term-row"><code>serving</code><code>orchestration</code><code>reliability</code><code>networking</code></div>
+          </header>
+          <div class="body-label">中文正文（保留英文术语）</div>
+          <div class="markdown"><h2>摘要</h2>
+<p>概览整个知识库的主题重心：推理服务、Agentic RL、多角色编排、可靠性、GPU/NPU 网络和生成式服务治理。</p>
+<h2>中文正文</h2>
+<ul>
+<li>当前 archive 的重心是大模型推理服务，但它同时覆盖 RL rollout、控制面编排、集群网络、硬件可靠性和 AIGC 服务治理。</li>
+<li>推理服务部分围绕 prefill/decode、KV Cache、MoE、通信、量化、投机解码和 serving framework 展开。</li>
+<li>Agentic RL 部分把 rollout server、sandbox、tool calling、reward、Model Engine 和权重同步视为一个多角色运行时系统。</li>
+<li>可靠性部分把 online serving、training cluster 和 heterogeneous serving 的指标、日志、trace、故障分类放在同一张地图里。</li>
+<li>后续维护要优先把 source documents 中重复出现的概念沉淀为 topic page，再把具名系统放到 systems page。</li>
+</ul>
+<h2>阅读和维护建议</h2>
+<ul>
+<li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
+<li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
+<li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
+</ul>
+<h2>英文术语</h2>
+<ul>
+<li><code>serving</code></li>
+<li><code>orchestration</code></li>
+<li><code>reliability</code></li>
+<li><code>networking</code></li>
+</ul>
+<h2>来源说明</h2>
+<ul>
+<li><code>AI Infra 基础组件原理与架构总览.docx</code></li>
+<li><code>字节 MaaS_Seed 推理系统架构深度分析：从两个 Hard Problem 出发.docx</code></li>
+<li><code>推理相关技术文档合集.docx</code></li>
+</ul>
+</div>
+        </article>
+        <aside class="post-aside">
+          <div class="aside-block">
+            <label for="page-search">站内搜索</label>
+            <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
+          </div>
+          <div class="aside-block">
+            <h2>同类文章</h2>
+            <div class="aside-list"><a class="post-card compact-card" href="log.html" data-search="维护日志 维护日志 记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。 ingest maintenance log source pass log maintenance">
+    <span class="card-meta">总览 · 2026-05-31</span>
+    <strong>维护日志</strong>
+    <span>记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。</span>
+    <div class="term-row"><code>ingest</code><code>maintenance log</code><code>source pass</code></div>
+  </a></div>
+          </div>
+          <div class="aside-block">
+            <h2>发布</h2>
+            <p>本页由纯静态 HTML 生成，可直接部署到 GitHub Pages。</p>
+            <a class="inline-link" href="README.html">查看构建与发布说明</a>
+          </div>
+        </aside>
+      </div>
+    
+  </main>
+  <footer class="site-footer">
+    <span>llm_memory</span>
+    <span>中文主叙述 · 英文术语保留 · GitHub Pages ready</span>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

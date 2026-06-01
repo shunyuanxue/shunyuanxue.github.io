@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FlashMLA、Ulysses、SPTP、DeepSeek V3.2、KV paging 和 kernel/parallelism 资料。">
+  <title>MLA Kernel 与并行源文档 · llm_memory</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="article">
+  <header class="site-header">
+    <a class="site-brand" href="../index.html">
+      <span>llm_memory</span>
+      <small>AI Infra 中文 Blog</small>
+    </a>
+    <nav class="top-nav">
+      <a class="" href="../index.html">首页</a><a class="" href="../index.html#topics">主题</a><a class="" href="../index.html#systems">系统</a><a class=" active" href="../sources/classified-index.html">源文档</a><a class="" href="../log.html">维护日志</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    
+      <div class="post-shell">
+        <article class="post">
+          <header class="post-header">
+            <a class="post-category" href="../index.html#sources">源文档索引</a>
+            <h1>MLA Kernel 与并行源文档</h1>
+            <p>FlashMLA、Ulysses、SPTP、DeepSeek V3.2、KV paging 和 kernel/parallelism 资料。</p>
+            <div class="post-meta">
+              <span>2026-05-28</span>
+              <span>wiki/sources/mla-kernel-parallelism-docs.md</span>
+              <a href="../sources/classified-index.html">分层索引</a><a href="../sources/catalog.html">源文件目录</a>
+            </div>
+            <div class="term-row"><code>FlashMLA</code><code>Ulysses</code><code>kernel</code></div>
+          </header>
+          <div class="body-label">中文正文（保留英文术语）</div>
+          <div class="markdown"><h2>摘要</h2>
+<p>FlashMLA、Ulysses、SPTP、DeepSeek V3.2、KV paging 和 kernel/parallelism 资料。</p>
+<h2>中文正文</h2>
+<ul>
+<li>MLA Kernel 与并行源文档覆盖 FlashMLA、Ulysses、SPTP、DeepSeek V3.2、KV paging 和 kernel/parallelism。</li>
+<li>这组资料连接 kernel 层、并行切分层和 serving scheduler 层，适合解释端到端性能为什么不等于单 kernel benchmark。</li>
+<li>摄取时要保留硬件前提，例如 Hopper、TMA、WGMMA、SM load balance 和 memory hierarchy。</li>
+<li>与 DeepSeek 性能页冲突时，应优先保留更具体的实现条件。</li>
+</ul>
+<h2>阅读和维护建议</h2>
+<ul>
+<li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
+<li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
+<li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
+</ul>
+<h2>英文术语</h2>
+<ul>
+<li><code>FlashMLA</code></li>
+<li><code>Ulysses</code></li>
+<li><code>kernel</code></li>
+</ul>
+<h2>来源说明</h2>
+<ul>
+<li><code>lark_docs/深度解析FlashMLA.docx</code></li>
+<li><code>lark_docs/推理Ulysses并行优化与DeepSeekV3V3.2实践.docx</code></li>
+<li><code>lark_docs/DeepSeekV3 MLA算力均衡实践(提升30%+).docx</code></li>
+<li><code>lark_docs/Flash Attention 算法和Hopper 架构性能优化.docx</code></li>
+</ul>
+</div>
+        </article>
+        <aside class="post-aside">
+          <div class="aside-block">
+            <label for="page-search">站内搜索</label>
+            <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
+          </div>
+          <div class="aside-block">
+            <h2>同类文章</h2>
+            <div class="aside-list"><a class="post-card compact-card" href="agentic-rl-docs.html" data-search="agentic rl 源文档 agentic rl 源文档 veomni、slime、verl rollout sandbox、seed rfc、vla rl vision/practice 的资料索引。 agentic rl veomni slime vla sources agentic-rl vla verl slime veomni">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>Agentic RL 源文档</strong>
+    <span>VeOmni、Slime、verl Rollout Sandbox、SEED RFC、VLA RL vision/practice 的资料索引。</span>
+    <div class="term-row"><code>Agentic RL</code><code>VeOmni</code><code>Slime</code></div>
+  </a>
+<a class="post-card compact-card" href="catalog.html" data-search="源文件目录 源文件目录 自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。 source catalog extraction duplicates sources catalog">
+    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <strong>源文件目录</strong>
+    <span>自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。</span>
+    <div class="term-row"><code>source catalog</code><code>extraction</code><code>duplicates</code></div>
+  </a>
+<a class="post-card compact-card" href="classified-index.html" data-search="原始文档分层索引 原始文档分层索引 按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。 source taxonomy classification ocr wiki index sources taxonomy index">
+    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <strong>原始文档分层索引</strong>
+    <span>按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。</span>
+    <div class="term-row"><code>source taxonomy</code><code>classification</code><code>OCR</code></div>
+  </a>
+<a class="post-card compact-card" href="communication-docs.html" data-search="通信源文档 通信源文档 deepep、stepmesh、distagg tensordirect、collective communication、a/f 分离和 rdma 通信资料。 communication deepep rdma sources communication deepep stepmesh rdma ingest">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>通信源文档</strong>
+    <span>DeepEP、StepMesh、DistAgg TensorDirect、collective communication、A/F 分离和 RDMA 通信资料。</span>
+    <div class="term-row"><code>communication</code><code>DeepEP</code><code>RDMA</code></div>
+  </a>
+<a class="post-card compact-card" href="decoding-optimization-docs.html" data-search="解码优化源文档 解码优化源文档 sampling、投机推理、eagle3、chunked prefill、flash decoding 等生成优化资料。 decoding sampling eagle sources decoding sampling speculative-decoding chunked-prefill">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>解码优化源文档</strong>
+    <span>Sampling、投机推理、EAGLE3、Chunked Prefill、Flash Decoding 等生成优化资料。</span>
+    <div class="term-row"><code>decoding</code><code>sampling</code><code>EAGLE</code></div>
+  </a>
+<a class="post-card compact-card" href="deepseek-performance-docs.html" data-search="deepseek 性能源文档 deepseek 性能源文档 deepseek v3/r1、mla、moe、不同 gpu 规格、性能建模和部署优化收益资料。 deepseek performance mla sources deepseek mla moe performance-modeling">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>DeepSeek 性能源文档</strong>
+    <span>DeepSeek V3/R1、MLA、MoE、不同 GPU 规格、性能建模和部署优化收益资料。</span>
+    <div class="term-row"><code>DeepSeek</code><code>performance</code><code>MLA</code></div>
+  </a>
+<a class="post-card compact-card" href="hardware-networking-docs.html" data-search="硬件与网络源文档 硬件与网络源文档 gpu/npu 集群、ib/rdma、亲和调度、scale-up 网络、fp8/hopper 和硬件性能资料入口。 hardware networking ib hopper sources hardware gpu rdma cluster ingest">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>硬件与网络源文档</strong>
+    <span>GPU/NPU 集群、IB/RDMA、亲和调度、Scale-up 网络、FP8/Hopper 和硬件性能资料入口。</span>
+    <div class="term-row"><code>hardware</code><code>networking</code><code>IB</code></div>
+  </a>
+<a class="post-card compact-card" href="hub-docs.html" data-search="hub 源文档 hub 源文档 第一批高价值 hub 文档，连接推理、rl、fornax、operator、稳定性等多个主题。 hub documents ingest sources hub-docs ingest">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>Hub 源文档</strong>
+    <span>第一批高价值 hub 文档，连接推理、RL、Fornax、Operator、稳定性等多个主题。</span>
+    <div class="term-row"><code>hub documents</code><code>ingest</code></div>
+  </a></div>
+          </div>
+          <div class="aside-block">
+            <h2>发布</h2>
+            <p>本页由纯静态 HTML 生成，可直接部署到 GitHub Pages。</p>
+            <a class="inline-link" href="../README.html">查看构建与发布说明</a>
+          </div>
+        </aside>
+      </div>
+    
+  </main>
+  <footer class="site-footer">
+    <span>llm_memory</span>
+    <span>中文主叙述 · 英文术语保留 · GitHub Pages ready</span>
+  </footer>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="横向比较 vLLM、SGLang、xLLM、AIbrix、Dynamo、DistAgg、Inferobust、veFuser 的调度、KV、PD 和控制面。">
+  <title>Serving 框架对比 · llm_memory</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="article">
+  <header class="site-header">
+    <a class="site-brand" href="../index.html">
+      <span>llm_memory</span>
+      <small>AI Infra 中文 Blog</small>
+    </a>
+    <nav class="top-nav">
+      <a class="" href="../index.html">首页</a><a class="" href="../index.html#topics">主题</a><a class="" href="../index.html#systems">系统</a><a class="" href="../sources/classified-index.html">源文档</a><a class="" href="../log.html">维护日志</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    
+      <div class="post-shell">
+        <article class="post">
+          <header class="post-header">
+            <a class="post-category" href="../index.html#comparisons">横向对比</a>
+            <h1>Serving 框架对比</h1>
+            <p>横向比较 vLLM、SGLang、xLLM、AIbrix、Dynamo、DistAgg、Inferobust、veFuser 的调度、KV、PD 和控制面。</p>
+            <div class="post-meta">
+              <span>2026-05-28</span>
+              <span>wiki/comparisons/serving-frameworks.md</span>
+              <a href="../sources/classified-index.html">分层索引</a><a href="../sources/catalog.html">源文件目录</a>
+            </div>
+            <div class="term-row"><code>vLLM</code><code>SGLang</code><code>Dynamo</code><code>AIbrix</code></div>
+          </header>
+          <div class="body-label">中文正文（保留英文术语）</div>
+          <div class="markdown"><h2>摘要</h2>
+<p>横向比较 vLLM、SGLang、xLLM、AIbrix、Dynamo、DistAgg、Inferobust、veFuser 的调度、KV、PD 和控制面。</p>
+<h2>中文正文</h2>
+<ul>
+<li>框架对比应按能力维度比较，而不是按品牌：scheduler、KV/cache、PD、MoE、communication、control plane、observability 和 autoscaling。</li>
+<li>vLLM 强在通用推理 runtime、PagedAttention 和生态；SGLang 强在 structured serving、PD/DP Attention/EPLB 等快速演进能力。</li>
+<li>xLLM、Dynamo、AIbrix、DistAgg、Inferobust、veFuser 分别代表 runtime overhead、PD/control plane、KV transfer、fault handling 和 DAG serving 的不同侧面。</li>
+<li>没有单一框架覆盖所有场景，真实平台通常需要按 workload 组合 runtime、router、operator 和观测系统。</li>
+<li>做技术选型时应先明确模型形态、SLO、硬件、租户隔离、故障策略和团队维护能力，再映射到框架能力。</li>
+</ul>
+<h2>阅读和维护建议</h2>
+<ul>
+<li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
+<li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
+<li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
+</ul>
+<h2>英文术语</h2>
+<ul>
+<li><code>vLLM</code></li>
+<li><code>SGLang</code></li>
+<li><code>Dynamo</code></li>
+<li><code>AIbrix</code></li>
+</ul>
+<h2>来源说明</h2>
+<ul>
+<li><code>AIbrix vs Dynamo PD 分离与弹性伸缩：代码级深度对比分析.docx</code></li>
+<li><code>SGLang PD 分离与 EPLB 在线动态负载均衡：设计与实现深度分析.docx</code></li>
+<li><code>SGLang DP Attention与PD分离深度分析.docx</code></li>
+<li><code>SGLang _Elastic EP_ 技术深度解构分析报告.docx</code></li>
+<li><code>lark_docs/vLLM DP特性与演进方案分析.docx</code></li>
+<li><code>lark_docs/vLLM_V1_Scheduler的调度逻辑&amp;优先级分析.docx</code></li>
+<li><code>lark_docs/vLLM PD分离KV cache传递机制详解与演进分析.docx</code></li>
+<li><code>lark_docs/DistAgg splitwise.docx</code></li>
+<li><code>lark_docs/DistAgg TensorDirect.docx</code></li>
+<li><code>MoE并行负载均衡：EPLB的深度解析与可视化.docx</code></li>
+<li><code>lark_docs/推理框架适配Kimi_QwenNext线性注意力_方案&amp;公式&amp;代码.docx</code></li>
+<li><code>lark_docs/投机推理的原理与常见方案.docx</code></li>
+<li><code>lark_docs/Eagle3.docx</code></li>
+<li><code>Report_ Inferobust系统深度分析.docx</code></li>
+<li><code>VLM on xllm实现设计.docx</code></li>
+</ul>
+</div>
+        </article>
+        <aside class="post-aside">
+          <div class="aside-block">
+            <label for="page-search">站内搜索</label>
+            <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
+          </div>
+          <div class="aside-block">
+            <h2>同类文章</h2>
+            <div class="aside-list"><p class="muted">暂无同类文章。</p></div>
+          </div>
+          <div class="aside-block">
+            <h2>发布</h2>
+            <p>本页由纯静态 HTML 生成，可直接部署到 GitHub Pages。</p>
+            <a class="inline-link" href="../README.html">查看构建与发布说明</a>
+          </div>
+        </aside>
+      </div>
+    
+  </main>
+  <footer class="site-footer">
+    <span>llm_memory</span>
+    <span>中文主叙述 · 英文术语保留 · GitHub Pages ready</span>
+  </footer>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="约束后续 LLM 协作维护方式：优先更新 wiki，保留原始源文件，新增结论必须引用来源。">
+  <title>LLM 维护规则 · llm_memory</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="article">
+  <header class="site-header">
+    <a class="site-brand" href="index.html">
+      <span>llm_memory</span>
+      <small>AI Infra 中文 Blog</small>
+    </a>
+    <nav class="top-nav">
+      <a class="" href="index.html">首页</a><a class="" href="index.html#topics">主题</a><a class="" href="index.html#systems">系统</a><a class="" href="sources/classified-index.html">源文档</a><a class="" href="log.html">维护日志</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    
+      <div class="post-shell">
+        <article class="post">
+          <header class="post-header">
+            <a class="post-category" href="index.html#docs">项目文档</a>
+            <h1>LLM 维护规则</h1>
+            <p>约束后续 LLM 协作维护方式：优先更新 wiki，保留原始源文件，新增结论必须引用来源。</p>
+            <div class="post-meta">
+              <span>未标注日期</span>
+              <span>AGENTS.md</span>
+              
+            </div>
+            <div class="term-row"><code>AGENTS.md</code><code>source material</code><code>wiki layer</code></div>
+          </header>
+          <div class="body-label">中文正文（保留英文术语）</div>
+          <div class="markdown"><p>This repository is an AI infrastructure memory archive. Treat the existing
+<code>.docx</code>, <code>.pdf</code>, <code>.png</code>, and <code>.drawio</code> files as source material, and treat
+<code>wiki/</code> as the maintained knowledge layer.</p>
+<h2>Working Contract</h2>
+<ul>
+<li>Start from <code>wiki/index.md</code> before answering broad questions.</li>
+<li>Prefer updating existing wiki pages over creating near-duplicate pages.</li>
+<li>Do not rewrite or move original source documents unless the user explicitly
+asks for an archival migration.</li>
+<li>When adding claims, cite source paths from <code>wiki/sources/catalog.md</code> or the
+original file path.</li>
+<li>If a source appears to be image-heavy or extraction quality is low, mark that
+in the page instead of pretending the text was fully parsed.</li>
+<li>Keep pages concise and link out to source documents for detail.</li>
+<li>Update <code>wiki/log.md</code> whenever a meaningful ingest, reorganization, or
+conclusion update is made.</li>
+</ul>
+<h2>Directory Contract</h2>
+<pre><code class="language-text">.
+  README.md                  human entry point
+  AGENTS.md                  rules for LLM-assisted maintenance
+  wiki/
+    index.md                 top-level map
+    log.md                   maintenance/change log
+    overview.md              system-level synthesis
+    topics/                  cross-system concepts
+    systems/                 named systems/platforms
+    components/              reusable architecture components
+    comparisons/             side-by-side analysis
+    incidents/               postmortems and reliability cases
+    sources/                 source catalog and ingest notes
+  raw/
+    README.md                source-material policy; originals still live in
+                             repo root and lark_docs until migrated
+  tools/
+    build_source_catalog.py  source inventory generator
+    extract_docx.py          docx text/headings extractor
+    lint_wiki.py             lightweight wiki consistency checks
+</code></pre>
+<h2>Page Schema</h2>
+<p>Each maintained wiki page should start with YAML front matter:</p>
+<pre><code class="language-yaml">---
+title: Short title
+status: draft | active | deprecated
+updated: YYYY-MM-DD
+tags: [tag-a, tag-b]
+sources:
+  - relative/path/to/source.docx
+---
+</code></pre>
+<p>Use the following section order when it fits:</p>
+<ol>
+<li><code>Summary</code></li>
+<li><code>Key Ideas</code></li>
+<li><code>Architecture</code></li>
+<li><code>Tradeoffs</code></li>
+<li><code>Open Questions</code></li>
+<li><code>Source Notes</code></li>
+</ol>
+<h2>Ingest Rules</h2>
+<ul>
+<li>Keep raw extraction separate from synthesis. Source files explain what was
+said; wiki pages explain what it means and how it connects.</li>
+<li>If multiple source files overlap, synthesize the newest or most complete
+version and list older versions in <code>Source Notes</code>.</li>
+<li>If two sources conflict, keep both claims and mark the disagreement.</li>
+<li>Link repeated concepts back to canonical topic pages, such as
+<code>wiki/topics/pd-disaggregation.md</code> or <code>wiki/topics/agentic-rl-infra.md</code>.</li>
+</ul>
+</div>
+        </article>
+        <aside class="post-aside">
+          <div class="aside-block">
+            <label for="page-search">站内搜索</label>
+            <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
+          </div>
+          <div class="aside-block">
+            <h2>同类文章</h2>
+            <div class="aside-list"><p class="muted">暂无同类文章。</p></div>
+          </div>
+          <div class="aside-block">
+            <h2>发布</h2>
+            <p>本页由纯静态 HTML 生成，可直接部署到 GitHub Pages。</p>
+            <a class="inline-link" href="README.html">查看构建与发布说明</a>
+          </div>
+        </aside>
+      </div>
+    
+  </main>
+  <footer class="site-footer">
+    <span>llm_memory</span>
+    <span>中文主叙述 · 英文术语保留 · GitHub Pages ready</span>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="这是 AI Infra memory 目录的中文主入口。页面保留英文系统名和术语，中文负责解释阅读路径、主题边界和后续维护状态。">
+  <title>Memory Wiki 索引 · llm_memory</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="home">
+  <header class="site-header">
+    <a class="site-brand" href="index.html">
+      <span>llm_memory</span>
+      <small>AI Infra 中文 Blog</small>
+    </a>
+    <nav class="top-nav">
+      <a class=" active" href="index.html">首页</a><a class="" href="index.html#topics">主题</a><a class="" href="index.html#systems">系统</a><a class="" href="sources/classified-index.html">源文档</a><a class="" href="log.html">维护日志</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    
+      <section class="hero">
+        <div>
+          <p class="eyebrow">GitHub Pages Blog</p>
+          <h1>AI Infra Memory Wiki</h1>
+          <p class="hero-copy">中文主叙述的技术 blog，保留英文术语作为检索键。内容覆盖 LLM Serving、PD Disaggregation、KV Cache、Agentic RL、GPU/NPU 网络与稳定性。</p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#articles">浏览文章</a>
+            <a class="secondary-action" href="README.html">发布说明</a>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <span>当前规模</span>
+          <strong>54</strong>
+          <p>篇中文主阅读路径文章，适合发布到 GitHub Pages 或本地离线阅读。</p>
+        </aside>
+      </section>
+
+      <section class="toolbar" id="articles">
+        <div>
+          <h2>文章索引</h2>
+          <p>按中文标题浏览，或直接搜索英文系统名、术语和标签。</p>
+        </div>
+        <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>推荐阅读</h2>
+          <a href="overview.html">总览文章</a>
+        </div>
+        <div class="featured-grid">
+          <a class="post-card" href="overview.html" data-search="ai infra 总览 ai infra 总览 概览整个知识库的主题重心：推理服务、agentic rl、多角色编排、可靠性、gpu/npu 网络和生成式服务治理。 serving orchestration reliability networking overview ai-infra">
+    <span class="card-meta">总览 · 2026-05-28</span>
+    <strong>AI Infra 总览</strong>
+    <span>概览整个知识库的主题重心：推理服务、Agentic RL、多角色编排、可靠性、GPU/NPU 网络和生成式服务治理。</span>
+    <div class="term-row"><code>serving</code><code>orchestration</code><code>reliability</code><code>networking</code></div>
+  </a>
+<a class="post-card" href="topics/llm-serving.html" data-search="llm 推理服务 llm 推理服务 推理服务的总入口，覆盖调度、kv cache、pd 分离、moe、传输、框架适配和服务治理之间的关系。 llm serving scheduler kv cache moe inference serving scheduler vllm sglang xllm">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>LLM 推理服务</strong>
+    <span>推理服务的总入口，覆盖调度、KV Cache、PD 分离、MoE、传输、框架适配和服务治理之间的关系。</span>
+    <div class="term-row"><code>LLM Serving</code><code>scheduler</code><code>KV Cache</code><code>MoE</code></div>
+  </a>
+<a class="post-card" href="topics/inference-optimization.html" data-search="推理优化方法谱系 推理优化方法谱系 按 prefill/decode 差异组织推理优化：token 减少、量化、kv 复用、投机解码、架构优化、服务层调度和硬件并行。 prefill decode quantization speculative decoding inference optimization quantization speculative-decoding token-compression">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>推理优化方法谱系</strong>
+    <span>按 prefill/decode 差异组织推理优化：token 减少、量化、KV 复用、投机解码、架构优化、服务层调度和硬件并行。</span>
+    <div class="term-row"><code>prefill</code><code>decode</code><code>quantization</code><code>speculative decoding</code></div>
+  </a>
+<a class="post-card" href="topics/pd-disaggregation.html" data-search="prefill/decode 分离 prefill/decode 分离 pd 分离的通用设计空间：部署形态、kv 传输、路由、调度、故障处理和 autoscaling。 pd disaggregation prefill decode kv transfer inference pd-disaggregation prefill decode kv-cache">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Prefill/Decode 分离</strong>
+    <span>PD 分离的通用设计空间：部署形态、KV 传输、路由、调度、故障处理和 autoscaling。</span>
+    <div class="term-row"><code>PD Disaggregation</code><code>prefill</code><code>decode</code><code>KV transfer</code></div>
+  </a>
+<a class="post-card" href="topics/agentic-rl-infra.html" data-search="agentic rl 基础设施 agentic rl 基础设施 把 rollout、sandbox、tool calling、reward、training loop 和模型权重同步看成一个多角色运行时系统。 agentic rl rollout sandbox tool calling agentic-rl rollout sandbox verl swalm fornax">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Agentic RL 基础设施</strong>
+    <span>把 rollout、sandbox、tool calling、reward、training loop 和模型权重同步看成一个多角色运行时系统。</span>
+    <div class="term-row"><code>Agentic RL</code><code>rollout</code><code>sandbox</code><code>tool calling</code></div>
+  </a>
+<a class="post-card" href="topics/agentic-rl-training-frameworks.html" data-search="agentic rl 训练框架 agentic rl 训练框架 比较 verl、veomni、slime、alphaseed/swalm 在 rollout buffer、异步训练、model engine 和一致性协议上的差异。 verl veomni slime rollout buffer agentic-rl rollout verl veomni slime alphaseed">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Agentic RL 训练框架</strong>
+    <span>比较 verl、VeOmni、Slime、Alphaseed/Swalm 在 rollout buffer、异步训练、Model Engine 和一致性协议上的差异。</span>
+    <div class="term-row"><code>verl</code><code>VeOmni</code><code>Slime</code><code>Rollout Buffer</code></div>
+  </a>
+<a class="post-card" href="topics/vla-rl-closed-loop.html" data-search="vla rl 闭环 vla rl 闭环 组织机器人/vla 的数据采集、预训练、rl 后训练、仿真、端侧部署和数据回流闭环。 vla simulation edge inference action chunking vla agentic-rl robotics simulation verl">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>VLA RL 闭环</strong>
+    <span>组织机器人/VLA 的数据采集、预训练、RL 后训练、仿真、端侧部署和数据回流闭环。</span>
+    <div class="term-row"><code>VLA</code><code>simulation</code><code>edge inference</code><code>action chunking</code></div>
+  </a>
+<a class="post-card" href="topics/heterogeneous-serving.html" data-search="异构推理服务 异构推理服务 把 npu/gpu、cpu/gpu、vlm encoder、diffusion dag 等不同硬件/角色边界统一成 serving 架构问题。 heterogeneous serving cpu/gpu npu/gpu vlm encoder heterogeneous-serving gpu npu cpu vlm pd-disaggregation">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>异构推理服务</strong>
+    <span>把 NPU/GPU、CPU/GPU、VLM encoder、diffusion DAG 等不同硬件/角色边界统一成 serving 架构问题。</span>
+    <div class="term-row"><code>heterogeneous serving</code><code>CPU/GPU</code><code>NPU/GPU</code><code>VLM encoder</code></div>
+  </a>
+<a class="post-card" href="topics/stability-observability.html" data-search="稳定性与可观测性 稳定性与可观测性 统一 serving、training、rollout、sandbox 的指标、日志、trace、故障分类、重试语义和治理信号。 observability metrics trace slo stability observability metrics sre sdc">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>稳定性与可观测性</strong>
+    <span>统一 serving、training、rollout、sandbox 的指标、日志、Trace、故障分类、重试语义和治理信号。</span>
+    <div class="term-row"><code>observability</code><code>metrics</code><code>trace</code><code>SLO</code></div>
+  </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>最近更新</h2>
+          <a href="log.html">查看维护日志</a>
+        </div>
+        <div class="latest-list">
+          <a class="post-card compact-card" href="log.html" data-search="维护日志 维护日志 记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。 ingest maintenance log source pass log maintenance">
+    <span class="card-meta">总览 · 2026-05-31</span>
+    <strong>维护日志</strong>
+    <span>记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。</span>
+    <div class="term-row"><code>ingest</code><code>maintenance log</code><code>source pass</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/catalog.html" data-search="源文件目录 源文件目录 自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。 source catalog extraction duplicates sources catalog">
+    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <strong>源文件目录</strong>
+    <span>自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。</span>
+    <div class="term-row"><code>source catalog</code><code>extraction</code><code>duplicates</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/classified-index.html" data-search="原始文档分层索引 原始文档分层索引 按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。 source taxonomy classification ocr wiki index sources taxonomy index">
+    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <strong>原始文档分层索引</strong>
+    <span>按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。</span>
+    <div class="term-row"><code>source taxonomy</code><code>classification</code><code>OCR</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/source-curation.html" data-search="源文件治理 源文件治理 记录重复源的优先级、低抽取/图片型源状态、pdf 文本抽取方法和剩余视觉复核工作。 source curation ocr dedup sources curation extraction-quality dedup">
+    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <strong>源文件治理</strong>
+    <span>记录重复源的优先级、低抽取/图片型源状态、PDF 文本抽取方法和剩余视觉复核工作。</span>
+    <div class="term-row"><code>source curation</code><code>OCR</code><code>dedup</code></div>
+  </a>
+<a class="post-card compact-card" href="comparisons/serving-frameworks.html" data-search="serving 框架对比 serving 框架对比 横向比较 vllm、sglang、xllm、aibrix、dynamo、distagg、inferobust、vefuser 的调度、kv、pd 和控制面。 vllm sglang dynamo aibrix comparison vllm sglang dynamo aibrix xllm">
+    <span class="card-meta">横向对比 · 2026-05-28</span>
+    <strong>Serving 框架对比</strong>
+    <span>横向比较 vLLM、SGLang、xLLM、AIbrix、Dynamo、DistAgg、Inferobust、veFuser 的调度、KV、PD 和控制面。</span>
+    <div class="term-row"><code>vLLM</code><code>SGLang</code><code>Dynamo</code></div>
+  </a>
+<a class="post-card compact-card" href="components/autoscaling-multirole-serving.html" data-search="多角色服务自动扩缩容 多角色服务自动扩缩容 讨论 hpa/hwa、external metrics、worker-level 指标、cronhpa、keda、warm pool 和 stateful scale-down。 hpa hwa keda warmpool autoscaling hpa hwa crd worker serving">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>多角色服务自动扩缩容</strong>
+    <span>讨论 HPA/HWA、External metrics、Worker-level 指标、CronHPA、KEDA、warm pool 和 stateful scale-down。</span>
+    <div class="term-row"><code>HPA</code><code>HWA</code><code>KEDA</code></div>
+  </a>
+<a class="post-card compact-card" href="components/crd-schema-reference.html" data-search="crd schema 参考 crd schema 参考 抽取 application、worker、role、workerset、status、autoscaling 字段，作为 schema 查询页。 application workerset status autoscaling crd operator schema application worker">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>CRD Schema 参考</strong>
+    <span>抽取 Application、Worker、Role、WorkerSet、status、autoscaling 字段，作为 schema 查询页。</span>
+    <div class="term-row"><code>Application</code><code>WorkerSet</code><code>status</code></div>
+  </a>
+<a class="post-card compact-card" href="components/operator-crd.html" data-search="operator 与 crd 编排 operator 与 crd 编排 推理多角色、多 shard、多 worker 的 kubernetes-style 控制面抽象和生命周期管理。 operator crd worker role operator crd kubernetes orchestration multi-role">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>Operator 与 CRD 编排</strong>
+    <span>推理多角色、多 shard、多 Worker 的 Kubernetes-style 控制面抽象和生命周期管理。</span>
+    <div class="term-row"><code>Operator</code><code>CRD</code><code>Worker</code></div>
+  </a>
+        </div>
+      </section>
+
+      <section class="section category-section" id="topics">
+            <div class="section-heading">
+              <div>
+                <h2>主题文章</h2>
+                <p>跨系统概念、方法谱系和系统设计主题。</p>
+              </div>
+              <span>23 篇</span>
+            </div>
+            <div class="article-grid">
+              <a class="post-card compact-card" href="topics/agentic-rl-infra.html" data-search="agentic rl 基础设施 agentic rl 基础设施 把 rollout、sandbox、tool calling、reward、training loop 和模型权重同步看成一个多角色运行时系统。 agentic rl rollout sandbox tool calling agentic-rl rollout sandbox verl swalm fornax">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Agentic RL 基础设施</strong>
+    <span>把 rollout、sandbox、tool calling、reward、training loop 和模型权重同步看成一个多角色运行时系统。</span>
+    <div class="term-row"><code>Agentic RL</code><code>rollout</code><code>sandbox</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/agentic-rl-training-frameworks.html" data-search="agentic rl 训练框架 agentic rl 训练框架 比较 verl、veomni、slime、alphaseed/swalm 在 rollout buffer、异步训练、model engine 和一致性协议上的差异。 verl veomni slime rollout buffer agentic-rl rollout verl veomni slime alphaseed">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Agentic RL 训练框架</strong>
+    <span>比较 verl、VeOmni、Slime、Alphaseed/Swalm 在 rollout buffer、异步训练、Model Engine 和一致性协议上的差异。</span>
+    <div class="term-row"><code>verl</code><code>VeOmni</code><code>Slime</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/chunked-prefill-flash-decoding.html" data-search="chunked prefill 与 flash decoding chunked prefill 与 flash decoding 说明长 prompt prefill 切块、decode attention block 切分，以及 softmax/lse merge 正确性。 chunked prefill flash decoding lse merge chunked-prefill flash-decoding prefill decode scheduler">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Chunked Prefill 与 Flash Decoding</strong>
+    <span>说明长 prompt prefill 切块、decode attention block 切分，以及 softmax/LSE merge 正确性。</span>
+    <div class="term-row"><code>Chunked Prefill</code><code>Flash Decoding</code><code>LSE merge</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/deepep-stepmesh-communication.html" data-search="deepep 与 stepmesh 通信 deepep 与 stepmesh 通信 梳理 ep dispatch/combine、all-to-all、nvshmem/rdma、stepmesh m2n、a/f 分离和 collective 基础。 deepep stepmesh rdma all-to-all deepep stepmesh rdma nvshmem all-to-all communication">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>DeepEP 与 StepMesh 通信</strong>
+    <span>梳理 EP dispatch/combine、All-to-All、NVSHMEM/RDMA、StepMesh M2N、A/F 分离和 collective 基础。</span>
+    <div class="term-row"><code>DeepEP</code><code>StepMesh</code><code>RDMA</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/deepseek-mla-moe-performance.html" data-search="deepseek mla/moe 性能建模 deepseek mla/moe 性能建模 面向 deepseek-style serving 的模型形状、mla kv、ep/eplb、硬件和网络 bound 推理性能分析。 deepseek mla moe eplb deepseek mla moe performance-modeling eplb fp8">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>DeepSeek MLA/MoE 性能建模</strong>
+    <span>面向 DeepSeek-style serving 的模型形状、MLA KV、EP/EPLB、硬件和网络 bound 推理性能分析。</span>
+    <div class="term-row"><code>DeepSeek</code><code>MLA</code><code>MoE</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/flashmla-ulysses-sptp.html" data-search="flashmla 与 ulysses/sptp flashmla 与 ulysses/sptp 关注 mla decode kernel、hopper 调度、kv paging、ulysses 序列并行和 mla prefill 负载均衡。 flashmla ulysses sptp hopper flashmla mla ulysses sptp hopper sequence-parallelism">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>FlashMLA 与 Ulysses/SPTP</strong>
+    <span>关注 MLA decode kernel、Hopper 调度、KV paging、Ulysses 序列并行和 MLA prefill 负载均衡。</span>
+    <div class="term-row"><code>FlashMLA</code><code>Ulysses</code><code>SPTP</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/hardware-cluster-networking.html" data-search="硬件与集群网络 硬件与集群网络 覆盖 gpu/npu 资源池、ib/rdma、拓扑亲和、scale-up/scale-out、训练/推理流量和硬件性能建模。 gpu npu ib rdma gpu npu rdma ib networking topology cluster">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>硬件与集群网络</strong>
+    <span>覆盖 GPU/NPU 资源池、IB/RDMA、拓扑亲和、scale-up/scale-out、训练/推理流量和硬件性能建模。</span>
+    <div class="term-row"><code>GPU</code><code>NPU</code><code>IB</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/heterogeneous-serving.html" data-search="异构推理服务 异构推理服务 把 npu/gpu、cpu/gpu、vlm encoder、diffusion dag 等不同硬件/角色边界统一成 serving 架构问题。 heterogeneous serving cpu/gpu npu/gpu vlm encoder heterogeneous-serving gpu npu cpu vlm pd-disaggregation">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>异构推理服务</strong>
+    <span>把 NPU/GPU、CPU/GPU、VLM encoder、diffusion DAG 等不同硬件/角色边界统一成 serving 架构问题。</span>
+    <div class="term-row"><code>heterogeneous serving</code><code>CPU/GPU</code><code>NPU/GPU</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/inference-optimization.html" data-search="推理优化方法谱系 推理优化方法谱系 按 prefill/decode 差异组织推理优化：token 减少、量化、kv 复用、投机解码、架构优化、服务层调度和硬件并行。 prefill decode quantization speculative decoding inference optimization quantization speculative-decoding token-compression">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>推理优化方法谱系</strong>
+    <span>按 prefill/decode 差异组织推理优化：token 减少、量化、KV 复用、投机解码、架构优化、服务层调度和硬件并行。</span>
+    <div class="term-row"><code>prefill</code><code>decode</code><code>quantization</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/kv-cache.html" data-search="kv cache kv cache 统一梳理 kv cache 生命周期、放置、传输、prefix reuse、session teleport、量化、投机解码和可观测指标。 kv cache pagedattention prefix cache kv-cache inference scheduling transport">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>KV Cache</strong>
+    <span>统一梳理 KV Cache 生命周期、放置、传输、prefix reuse、session teleport、量化、投机解码和可观测指标。</span>
+    <div class="term-row"><code>KV Cache</code><code>PagedAttention</code><code>prefix cache</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/linear-attention-serving.html" data-search="linear attention serving linear attention serving 总结 qwennext/kimi 等 hybrid linear-attention 模型在 gdn/kda state cache、chunkwise/recurrent compute 和 prefix cache 上的适配。 linear attention gdn kda state cache linear-attention kimi qwennext gdn kda cache">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Linear Attention Serving</strong>
+    <span>总结 QwenNext/Kimi 等 hybrid linear-attention 模型在 GDN/KDA state cache、chunkwise/recurrent compute 和 prefix cache 上的适配。</span>
+    <div class="term-row"><code>Linear Attention</code><code>GDN</code><code>KDA</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/llm-serving.html" data-search="llm 推理服务 llm 推理服务 推理服务的总入口，覆盖调度、kv cache、pd 分离、moe、传输、框架适配和服务治理之间的关系。 llm serving scheduler kv cache moe inference serving scheduler vllm sglang xllm">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>LLM 推理服务</strong>
+    <span>推理服务的总入口，覆盖调度、KV Cache、PD 分离、MoE、传输、框架适配和服务治理之间的关系。</span>
+    <div class="term-row"><code>LLM Serving</code><code>scheduler</code><code>KV Cache</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/moe-load-balancing-eplb.html" data-search="moe 负载均衡与 eplb moe 负载均衡与 eplb 说明专家并行中的负载不均、冗余专家、在线 eplb、runtime migration 和 serving-path 里的专家放置问题。 moe eplb expert parallelism moe eplb expert-parallelism load-balancing sglang">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>MoE 负载均衡与 EPLB</strong>
+    <span>说明专家并行中的负载不均、冗余专家、在线 EPLB、runtime migration 和 serving-path 里的专家放置问题。</span>
+    <div class="term-row"><code>MoE</code><code>EPLB</code><code>expert parallelism</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/npu-gpu-pd-disaggregation.html" data-search="npu/gpu 异构 pd 分离 npu/gpu 异构 pd 分离 基于 launch review 的 910b/h20 异构 prefill/decode：kv 转换、pdccl、layerwise 传输、拓扑亲和和 npu 计算优化。 910b h20 pdccl layerwise transfer pd-disaggregation heterogeneous-serving npu gpu kv-cache pdccl">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>NPU/GPU 异构 PD 分离</strong>
+    <span>基于 Launch Review 的 910B/H20 异构 prefill/decode：KV 转换、PDCCL、LayerWise 传输、拓扑亲和和 NPU 计算优化。</span>
+    <div class="term-row"><code>910B</code><code>H20</code><code>PDCCL</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/pd-disaggregation.html" data-search="prefill/decode 分离 prefill/decode 分离 pd 分离的通用设计空间：部署形态、kv 传输、路由、调度、故障处理和 autoscaling。 pd disaggregation prefill decode kv transfer inference pd-disaggregation prefill decode kv-cache">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>Prefill/Decode 分离</strong>
+    <span>PD 分离的通用设计空间：部署形态、KV 传输、路由、调度、故障处理和 autoscaling。</span>
+    <div class="term-row"><code>PD Disaggregation</code><code>prefill</code><code>decode</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/quantization-serving.html" data-search="推理量化 推理量化 梳理 fp8、w4a8、kv-cache 量化、ds-r1 w4a8kv8 workflow、scale 布局和线上质量校验风险。 fp8 w4a8 kv8 ptq quantization fp8 w4a8 kv-cache deepseek serving">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>推理量化</strong>
+    <span>梳理 FP8、W4A8、KV-cache 量化、DS-R1 W4A8KV8 workflow、scale 布局和线上质量校验风险。</span>
+    <div class="term-row"><code>FP8</code><code>W4A8</code><code>KV8</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/sampling-and-generation.html" data-search="采样与生成策略 采样与生成策略 解释 temperature、top-k、top-p、min-p、penalty、greedy/beam search 等生成控制参数对服务行为的影响。 sampling temperature top-p beam search sampling generation decoding beam-search logits">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>采样与生成策略</strong>
+    <span>解释 temperature、top-k、top-p、min-p、penalty、greedy/beam search 等生成控制参数对服务行为的影响。</span>
+    <div class="term-row"><code>sampling</code><code>temperature</code><code>top-p</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/sdc-and-hardware-reliability.html" data-search="sdc 与硬件可靠性 sdc 与硬件可靠性 描述 silent data corruption 的检测、隔离、诊断、硬件 quarantine 和业务侧质量 validator。 sdc hardware reliability quarantine sdc reliability hardware gpu observability">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>SDC 与硬件可靠性</strong>
+    <span>描述 silent data corruption 的检测、隔离、诊断、硬件 quarantine 和业务侧质量 validator。</span>
+    <div class="term-row"><code>SDC</code><code>hardware reliability</code><code>quarantine</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/speculative-decoding-mtp.html" data-search="投机解码与 mtp 投机解码与 mtp 覆盖 draft model、eagle/eagle3、mtp/nextn、n-gram drafting、acceptance 和 kv rollback 的系统要求。 speculative decoding eagle mtp kv rollback speculative-decoding eagle eagle3 mtp nextn decoding">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>投机解码与 MTP</strong>
+    <span>覆盖 draft model、EAGLE/EAGLE3、MTP/NEXTN、n-gram drafting、acceptance 和 KV rollback 的系统要求。</span>
+    <div class="term-row"><code>speculative decoding</code><code>EAGLE</code><code>MTP</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/stability-observability.html" data-search="稳定性与可观测性 稳定性与可观测性 统一 serving、training、rollout、sandbox 的指标、日志、trace、故障分类、重试语义和治理信号。 observability metrics trace slo stability observability metrics sre sdc">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>稳定性与可观测性</strong>
+    <span>统一 serving、training、rollout、sandbox 的指标、日志、Trace、故障分类、重试语义和治理信号。</span>
+    <div class="term-row"><code>observability</code><code>metrics</code><code>trace</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/training-cluster-stability.html" data-search="训练集群稳定性 训练集群稳定性 从 ettr、mfu、checkpoint、网络断流、n 分定位和 straggler 检测角度理解大规模训练稳定性。 ettr mfu checkpoint straggler training stability ettr mfu checkpoint straggler">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>训练集群稳定性</strong>
+    <span>从 ETTR、MFU、checkpoint、网络断流、N 分定位和 straggler 检测角度理解大规模训练稳定性。</span>
+    <div class="term-row"><code>ETTR</code><code>MFU</code><code>checkpoint</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/vla-rl-closed-loop.html" data-search="vla rl 闭环 vla rl 闭环 组织机器人/vla 的数据采集、预训练、rl 后训练、仿真、端侧部署和数据回流闭环。 vla simulation edge inference action chunking vla agentic-rl robotics simulation verl">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>VLA RL 闭环</strong>
+    <span>组织机器人/VLA 的数据采集、预训练、RL 后训练、仿真、端侧部署和数据回流闭环。</span>
+    <div class="term-row"><code>VLA</code><code>simulation</code><code>edge inference</code></div>
+  </a>
+<a class="post-card compact-card" href="topics/vllm-scheduler.html" data-search="vllm scheduler vllm scheduler 解释 vllm v1 scheduler 的 waiting/running queues、resource budget、priority 和 prefill/decode 约束。 vllm scheduler resource budget vllm scheduler inference prefill decode priority">
+    <span class="card-meta">主题文章 · 2026-05-28</span>
+    <strong>vLLM Scheduler</strong>
+    <span>解释 vLLM V1 scheduler 的 waiting/running queues、resource budget、priority 和 prefill/decode 约束。</span>
+    <div class="term-row"><code>vLLM</code><code>scheduler</code><code>resource budget</code></div>
+  </a>
+            </div>
+          </section>
+<section class="section category-section" id="systems">
+            <div class="section-heading">
+              <div>
+                <h2>系统解析</h2>
+                <p>具名系统、平台和 runtime 的结构化笔记。</p>
+              </div>
+              <span>7 篇</span>
+            </div>
+            <div class="article-grid">
+              <a class="post-card compact-card" href="systems/alphaseed-rollout.html" data-search="alphaseed rollout alphaseed rollout 总结 alphaseed 从 offline batch 到 online streaming、half-async、in-flight weight update 的演进。 alphaseed rollout half-async weight sync alphaseed rollout agentic-rl verl sandbox">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>Alphaseed Rollout</strong>
+    <span>总结 Alphaseed 从 offline batch 到 online streaming、half-async、in-flight weight update 的演进。</span>
+    <div class="term-row"><code>Alphaseed</code><code>rollout</code><code>half-async</code></div>
+  </a>
+<a class="post-card compact-card" href="systems/fornax-swalm-sandbox.html" data-search="fornax、swalm 与 sandbox fornax、swalm 与 sandbox 梳理 agent ops 平台、agent 框架和隔离执行环境之间的边界与集成问题。 fornax swalm sandbox agent ops fornax swalm sandbox agent-ops rollout">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>Fornax、Swalm 与 Sandbox</strong>
+    <span>梳理 Agent Ops 平台、Agent 框架和隔离执行环境之间的边界与集成问题。</span>
+    <div class="term-row"><code>Fornax</code><code>Swalm</code><code>Sandbox</code></div>
+  </a>
+<a class="post-card compact-card" href="systems/inferobust.html" data-search="inferobust inferobust 异构推理管理、容错、健康检查、executor/driver/service 失效恢复和多角色部署的系统页。 inferobust executor driver fault handling inferobust reliability inference heterogeneous-serving">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>Inferobust</strong>
+    <span>异构推理管理、容错、健康检查、Executor/Driver/Service 失效恢复和多角色部署的系统页。</span>
+    <div class="term-row"><code>Inferobust</code><code>Executor</code><code>Driver</code></div>
+  </a>
+<a class="post-card compact-card" href="systems/sglang-runtime.html" data-search="sglang runtime sglang runtime 组织 sglang 的 pdrouter、dataparallelcontroller、scheduler/eplb、dp attention 和 elastic ep。 sglang pdrouter dp attention elastic ep sglang inference pd-disaggregation eplb elastic-ep dp-attention">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>SGLang Runtime</strong>
+    <span>组织 SGLang 的 PDRouter、DataParallelController、Scheduler/EPLB、DP Attention 和 Elastic EP。</span>
+    <div class="term-row"><code>SGLang</code><code>PDRouter</code><code>DP Attention</code></div>
+  </a>
+<a class="post-card compact-card" href="systems/stormservice.html" data-search="stormservice stormservice 多角色 serving 的 stormservice/roleset/role/pod 编排模型和状态管理。 stormservice roleset replica mode pooled mode stormservice orchestration multi-role serving">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>StormService</strong>
+    <span>多角色 serving 的 StormService/RoleSet/Role/Pod 编排模型和状态管理。</span>
+    <div class="term-row"><code>StormService</code><code>RoleSet</code><code>Replica Mode</code></div>
+  </a>
+<a class="post-card compact-card" href="systems/vefuser.html" data-search="vefuser vefuser diffusion/video/image serving 的 dag 调度、push-to-pull 重构、redis 队列、p2p tensor transfer 和队列 hpa。 vefuser diffusion pull scheduling keda vefuser diffusion-serving service-governance autoscaling aigc">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>veFuser</strong>
+    <span>Diffusion/video/image serving 的 DAG 调度、Push-to-Pull 重构、Redis 队列、P2P tensor transfer 和队列 HPA。</span>
+    <div class="term-row"><code>veFuser</code><code>Diffusion</code><code>Pull scheduling</code></div>
+  </a>
+<a class="post-card compact-card" href="systems/xllm.html" data-search="xllm xllm xllm 的 zero-overhead runtime、分图推理、kv cache store 和 vlm encoder 分离设计。 xllm zero-overhead kvcachestore vlm xllm inference runtime kv-cache vlm">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>xLLM</strong>
+    <span>xLLM 的 zero-overhead runtime、分图推理、KV Cache Store 和 VLM encoder 分离设计。</span>
+    <div class="term-row"><code>xLLM</code><code>zero-overhead</code><code>KVCacheStore</code></div>
+  </a>
+            </div>
+          </section>
+<section class="section category-section" id="components">
+            <div class="section-heading">
+              <div>
+                <h2>组件设计</h2>
+                <p>可复用控制面、路由、CRD 和扩缩容组件。</p>
+              </div>
+              <span>4 篇</span>
+            </div>
+            <div class="article-grid">
+              <a class="post-card compact-card" href="components/autoscaling-multirole-serving.html" data-search="多角色服务自动扩缩容 多角色服务自动扩缩容 讨论 hpa/hwa、external metrics、worker-level 指标、cronhpa、keda、warm pool 和 stateful scale-down。 hpa hwa keda warmpool autoscaling hpa hwa crd worker serving">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>多角色服务自动扩缩容</strong>
+    <span>讨论 HPA/HWA、External metrics、Worker-level 指标、CronHPA、KEDA、warm pool 和 stateful scale-down。</span>
+    <div class="term-row"><code>HPA</code><code>HWA</code><code>KEDA</code></div>
+  </a>
+<a class="post-card compact-card" href="components/crd-schema-reference.html" data-search="crd schema 参考 crd schema 参考 抽取 application、worker、role、workerset、status、autoscaling 字段，作为 schema 查询页。 application workerset status autoscaling crd operator schema application worker">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>CRD Schema 参考</strong>
+    <span>抽取 Application、Worker、Role、WorkerSet、status、autoscaling 字段，作为 schema 查询页。</span>
+    <div class="term-row"><code>Application</code><code>WorkerSet</code><code>status</code></div>
+  </a>
+<a class="post-card compact-card" href="components/operator-crd.html" data-search="operator 与 crd 编排 operator 与 crd 编排 推理多角色、多 shard、多 worker 的 kubernetes-style 控制面抽象和生命周期管理。 operator crd worker role operator crd kubernetes orchestration multi-role">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>Operator 与 CRD 编排</strong>
+    <span>推理多角色、多 shard、多 Worker 的 Kubernetes-style 控制面抽象和生命周期管理。</span>
+    <div class="term-row"><code>Operator</code><code>CRD</code><code>Worker</code></div>
+  </a>
+<a class="post-card compact-card" href="components/service-discovery-routing.html" data-search="服务发现与路由 服务发现与路由 覆盖 worker 内部 dns、headless service、endpoint 到 service 映射、多租户隔离和动态路由。 service discovery routing dns endpoint service-discovery routing crd dns endpoint service">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>服务发现与路由</strong>
+    <span>覆盖 Worker 内部 DNS、headless service、endpoint 到 service 映射、多租户隔离和动态路由。</span>
+    <div class="term-row"><code>service discovery</code><code>routing</code><code>DNS</code></div>
+  </a>
+            </div>
+          </section>
+<section class="section category-section" id="comparisons">
+            <div class="section-heading">
+              <div>
+                <h2>横向对比</h2>
+                <p>框架、系统和方案之间的 side-by-side analysis。</p>
+              </div>
+              <span>1 篇</span>
+            </div>
+            <div class="article-grid">
+              <a class="post-card compact-card" href="comparisons/serving-frameworks.html" data-search="serving 框架对比 serving 框架对比 横向比较 vllm、sglang、xllm、aibrix、dynamo、distagg、inferobust、vefuser 的调度、kv、pd 和控制面。 vllm sglang dynamo aibrix comparison vllm sglang dynamo aibrix xllm">
+    <span class="card-meta">横向对比 · 2026-05-28</span>
+    <strong>Serving 框架对比</strong>
+    <span>横向比较 vLLM、SGLang、xLLM、AIbrix、Dynamo、DistAgg、Inferobust、veFuser 的调度、KV、PD 和控制面。</span>
+    <div class="term-row"><code>vLLM</code><code>SGLang</code><code>Dynamo</code></div>
+  </a>
+            </div>
+          </section>
+<section class="section category-section" id="incidents">
+            <div class="section-heading">
+              <div>
+                <h2>事故复盘</h2>
+                <p>可靠性问题、故障模式和 postmortem。</p>
+              </div>
+              <span>1 篇</span>
+            </div>
+            <div class="article-grid">
+              <a class="post-card compact-card" href="incidents/long-context-split-latency.html" data-search="长上下文分图延迟事故 长上下文分图延迟事故 复盘 28k-128k 长文总结分图服务不可用事故，强调 rpc timeout、kv cleanup 和控制面容错。 incident split-graph timeout kv cleanup incident long-context split-graph stability">
+    <span class="card-meta">事故复盘 · 2026-05-28</span>
+    <strong>长上下文分图延迟事故</strong>
+    <span>复盘 28K-128K 长文总结分图服务不可用事故，强调 RPC timeout、KV cleanup 和控制面容错。</span>
+    <div class="term-row"><code>incident</code><code>split-graph</code><code>timeout</code></div>
+  </a>
+            </div>
+          </section>
+<section class="section category-section" id="sources">
+            <div class="section-heading">
+              <div>
+                <h2>源文档索引</h2>
+                <p>source material 的目录、摄取说明和治理状态。</p>
+              </div>
+              <span>16 篇</span>
+            </div>
+            <div class="article-grid">
+              <a class="post-card compact-card" href="sources/agentic-rl-docs.html" data-search="agentic rl 源文档 agentic rl 源文档 veomni、slime、verl rollout sandbox、seed rfc、vla rl vision/practice 的资料索引。 agentic rl veomni slime vla sources agentic-rl vla verl slime veomni">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>Agentic RL 源文档</strong>
+    <span>VeOmni、Slime、verl Rollout Sandbox、SEED RFC、VLA RL vision/practice 的资料索引。</span>
+    <div class="term-row"><code>Agentic RL</code><code>VeOmni</code><code>Slime</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/catalog.html" data-search="源文件目录 源文件目录 自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。 source catalog extraction duplicates sources catalog">
+    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <strong>源文件目录</strong>
+    <span>自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。</span>
+    <div class="term-row"><code>source catalog</code><code>extraction</code><code>duplicates</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/classified-index.html" data-search="原始文档分层索引 原始文档分层索引 按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。 source taxonomy classification ocr wiki index sources taxonomy index">
+    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <strong>原始文档分层索引</strong>
+    <span>按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。</span>
+    <div class="term-row"><code>source taxonomy</code><code>classification</code><code>OCR</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/communication-docs.html" data-search="通信源文档 通信源文档 deepep、stepmesh、distagg tensordirect、collective communication、a/f 分离和 rdma 通信资料。 communication deepep rdma sources communication deepep stepmesh rdma ingest">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>通信源文档</strong>
+    <span>DeepEP、StepMesh、DistAgg TensorDirect、collective communication、A/F 分离和 RDMA 通信资料。</span>
+    <div class="term-row"><code>communication</code><code>DeepEP</code><code>RDMA</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/decoding-optimization-docs.html" data-search="解码优化源文档 解码优化源文档 sampling、投机推理、eagle3、chunked prefill、flash decoding 等生成优化资料。 decoding sampling eagle sources decoding sampling speculative-decoding chunked-prefill">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>解码优化源文档</strong>
+    <span>Sampling、投机推理、EAGLE3、Chunked Prefill、Flash Decoding 等生成优化资料。</span>
+    <div class="term-row"><code>decoding</code><code>sampling</code><code>EAGLE</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/deepseek-performance-docs.html" data-search="deepseek 性能源文档 deepseek 性能源文档 deepseek v3/r1、mla、moe、不同 gpu 规格、性能建模和部署优化收益资料。 deepseek performance mla sources deepseek mla moe performance-modeling">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>DeepSeek 性能源文档</strong>
+    <span>DeepSeek V3/R1、MLA、MoE、不同 GPU 规格、性能建模和部署优化收益资料。</span>
+    <div class="term-row"><code>DeepSeek</code><code>performance</code><code>MLA</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/hardware-networking-docs.html" data-search="硬件与网络源文档 硬件与网络源文档 gpu/npu 集群、ib/rdma、亲和调度、scale-up 网络、fp8/hopper 和硬件性能资料入口。 hardware networking ib hopper sources hardware gpu rdma cluster ingest">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>硬件与网络源文档</strong>
+    <span>GPU/NPU 集群、IB/RDMA、亲和调度、Scale-up 网络、FP8/Hopper 和硬件性能资料入口。</span>
+    <div class="term-row"><code>hardware</code><code>networking</code><code>IB</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/hub-docs.html" data-search="hub 源文档 hub 源文档 第一批高价值 hub 文档，连接推理、rl、fornax、operator、稳定性等多个主题。 hub documents ingest sources hub-docs ingest">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>Hub 源文档</strong>
+    <span>第一批高价值 hub 文档，连接推理、RL、Fornax、Operator、稳定性等多个主题。</span>
+    <div class="term-row"><code>hub documents</code><code>ingest</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/linear-attention-docs.html" data-search="linear attention 源文档 linear attention 源文档 linear attention、qwennext、kimi、gdn/kda、ssm/conv cache 和框架适配资料。 linear attention qwennext kimi sources linear-attention kimi qwennext gdn kda">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>Linear Attention 源文档</strong>
+    <span>Linear Attention、QwenNext、Kimi、GDN/KDA、SSM/Conv cache 和框架适配资料。</span>
+    <div class="term-row"><code>Linear Attention</code><code>QwenNext</code><code>Kimi</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/mla-kernel-parallelism-docs.html" data-search="mla kernel 与并行源文档 mla kernel 与并行源文档 flashmla、ulysses、sptp、deepseek v3.2、kv paging 和 kernel/parallelism 资料。 flashmla ulysses kernel sources flashmla mla ulysses sptp hopper">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>MLA Kernel 与并行源文档</strong>
+    <span>FlashMLA、Ulysses、SPTP、DeepSeek V3.2、KV paging 和 kernel/parallelism 资料。</span>
+    <div class="term-row"><code>FlashMLA</code><code>Ulysses</code><code>kernel</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/orchestration-docs.html" data-search="编排源文档 编排源文档 operator、crd、worker、application、stormservice、service discovery 和 autoscaling 资料入口。 orchestration crd worker sources orchestration operator crd ingest">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>编排源文档</strong>
+    <span>Operator、CRD、Worker、Application、StormService、service discovery 和 autoscaling 资料入口。</span>
+    <div class="term-row"><code>orchestration</code><code>CRD</code><code>Worker</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/pd-kv-docs.html" data-search="pd/kv 源文档 pd/kv 源文档 prefill/decode 分离、kv transfer、vllm/mooncake、distagg、splitserve 等文档索引。 pd kv mooncake distagg sources pd kv-cache scheduler ingest">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>PD/KV 源文档</strong>
+    <span>Prefill/Decode 分离、KV transfer、vLLM/Mooncake、DistAgg、SplitServe 等文档索引。</span>
+    <div class="term-row"><code>PD</code><code>KV</code><code>Mooncake</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/quantization-docs.html" data-search="量化源文档 量化源文档 fp8、w4a8、kv cache quantization、int4 moe 和 ds-r1 w4a8kv8 资料索引。 quantization fp8 w4a8 sources quantization fp8 w4a8 kv-cache deepseek">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>量化源文档</strong>
+    <span>FP8、W4A8、KV cache quantization、INT4 MoE 和 DS-R1 W4A8KV8 资料索引。</span>
+    <div class="term-row"><code>quantization</code><code>FP8</code><code>W4A8</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/sglang-eplb-docs.html" data-search="sglang/eplb 源文档 sglang/eplb 源文档 sglang pd、dp attention、elastic ep、eplb 和 moe load balancing 的源文档说明。 sglang eplb elastic ep sources sglang eplb elastic-ep moe ingest">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>SGLang/EPLB 源文档</strong>
+    <span>SGLang PD、DP Attention、Elastic EP、EPLB 和 MoE load balancing 的源文档说明。</span>
+    <div class="term-row"><code>SGLang</code><code>EPLB</code><code>Elastic EP</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/source-curation.html" data-search="源文件治理 源文件治理 记录重复源的优先级、低抽取/图片型源状态、pdf 文本抽取方法和剩余视觉复核工作。 source curation ocr dedup sources curation extraction-quality dedup">
+    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <strong>源文件治理</strong>
+    <span>记录重复源的优先级、低抽取/图片型源状态、PDF 文本抽取方法和剩余视觉复核工作。</span>
+    <div class="term-row"><code>source curation</code><code>OCR</code><code>dedup</code></div>
+  </a>
+<a class="post-card compact-card" href="sources/stability-heterogeneous-governance-docs.html" data-search="稳定性/异构/治理源文档 稳定性/异构/治理源文档 数据面稳定性、观测规范、inferobust、sdc、vefuser、aigc 治理和异构 serving 文档集合。 stability heterogeneous governance sources stability heterogeneous-serving governance">
+    <span class="card-meta">源文档索引 · 2026-05-28</span>
+    <strong>稳定性/异构/治理源文档</strong>
+    <span>数据面稳定性、观测规范、Inferobust、SDC、veFuser、AIGC 治理和异构 serving 文档集合。</span>
+    <div class="term-row"><code>stability</code><code>heterogeneous</code><code>governance</code></div>
+  </a>
+            </div>
+          </section>
+<section class="section category-section" id="root">
+            <div class="section-heading">
+              <div>
+                <h2>总览</h2>
+                <p>知识库入口、总览和维护记录。</p>
+              </div>
+              <span>2 篇</span>
+            </div>
+            <div class="article-grid">
+              <a class="post-card compact-card" href="log.html" data-search="维护日志 维护日志 记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。 ingest maintenance log source pass log maintenance">
+    <span class="card-meta">总览 · 2026-05-31</span>
+    <strong>维护日志</strong>
+    <span>记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。</span>
+    <div class="term-row"><code>ingest</code><code>maintenance log</code><code>source pass</code></div>
+  </a>
+<a class="post-card compact-card" href="overview.html" data-search="ai infra 总览 ai infra 总览 概览整个知识库的主题重心：推理服务、agentic rl、多角色编排、可靠性、gpu/npu 网络和生成式服务治理。 serving orchestration reliability networking overview ai-infra">
+    <span class="card-meta">总览 · 2026-05-28</span>
+    <strong>AI Infra 总览</strong>
+    <span>概览整个知识库的主题重心：推理服务、Agentic RL、多角色编排、可靠性、GPU/NPU 网络和生成式服务治理。</span>
+    <div class="term-row"><code>serving</code><code>orchestration</code><code>reliability</code></div>
+  </a>
+            </div>
+          </section>
+
+      <section class="section index-body">
+        <div class="section-heading">
+          <h2>原 Wiki 索引正文</h2>
+        </div>
+        <article class="markdown"><h2>摘要</h2>
+<p>这是 AI Infra memory 目录的中文主入口。页面保留英文系统名和术语，中文负责解释阅读路径、主题边界和后续维护状态。</p>
+<h2>中文正文</h2>
+<ul>
+<li>这个知识库的主线是把零散 source documents 收敛为可维护的中文 AI Infra blog，而不是替代原始文档。</li>
+<li>阅读顺序建议从总览开始，再进入推理服务、PD/KV、Agentic RL、异构 serving、稳定性和源文档治理。</li>
+<li>原始文档入口建议先看 <a href="sources/classified-index.html">原始文档分层索引</a>，再看 <a href="sources/catalog.html">源文件目录</a> 和 <a href="sources/source-curation.html">源文件治理</a>。</li>
+<li>英文系统名和实现术语保留为检索键，例如 <code>vLLM</code>、<code>SGLang</code>、<code>KV Cache</code>、<code>PD Disaggregation</code>、<code>EPLB</code>。</li>
+<li>每篇页面都应能回答三个问题：它讨论什么系统边界、关键机制是什么、和哪些源文档/相关主题相连。</li>
+</ul>
+<h2>阅读和维护建议</h2>
+<ul>
+<li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
+<li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
+<li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
+</ul>
+<h2>英文术语</h2>
+<ul>
+<li><code>AI Infra</code></li>
+<li><code>LLM Serving</code></li>
+<li><code>Agentic RL</code></li>
+<li><code>PD Disaggregation</code></li>
+</ul>
+<h2>来源说明</h2>
+<ul>
+<li>本页是综合/维护页面，不直接绑定单一源文件；具体证据请继续查看相关 source pages 与 <code>wiki/sources/catalog.md</code>。</li>
+</ul>
+</article>
+      </section>
+    
+  </main>
+  <footer class="site-footer">
+    <span>llm_memory</span>
+    <span>中文主叙述 · 英文术语保留 · GitHub Pages ready</span>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

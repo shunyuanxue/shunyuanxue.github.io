@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="覆盖 Worker 内部 DNS、headless service、endpoint 到 service 映射、多租户隔离和动态路由。">
+  <title>服务发现与路由 · llm_memory</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="article">
+  <header class="site-header">
+    <a class="site-brand" href="../index.html">
+      <span>llm_memory</span>
+      <small>AI Infra 中文 Blog</small>
+    </a>
+    <nav class="top-nav">
+      <a class="" href="../index.html">首页</a><a class="" href="../index.html#topics">主题</a><a class="" href="../index.html#systems">系统</a><a class="" href="../sources/classified-index.html">源文档</a><a class="" href="../log.html">维护日志</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    
+      <div class="post-shell">
+        <article class="post">
+          <header class="post-header">
+            <a class="post-category" href="../index.html#components">组件设计</a>
+            <h1>服务发现与路由</h1>
+            <p>覆盖 Worker 内部 DNS、headless service、endpoint 到 service 映射、多租户隔离和动态路由。</p>
+            <div class="post-meta">
+              <span>2026-05-28</span>
+              <span>wiki/components/service-discovery-routing.md</span>
+              <a href="../sources/classified-index.html">分层索引</a><a href="../sources/catalog.html">源文件目录</a>
+            </div>
+            <div class="term-row"><code>service discovery</code><code>routing</code><code>DNS</code><code>endpoint</code></div>
+          </header>
+          <div class="body-label">中文正文（保留英文术语）</div>
+          <div class="markdown"><h2>摘要</h2>
+<p>覆盖 Worker 内部 DNS、headless service、endpoint 到 service 映射、多租户隔离和动态路由。</p>
+<h2>中文正文</h2>
+<ul>
+<li>服务发现与路由负责把抽象角色映射到可调用 endpoint，使 router、worker、prefill pool、decode pool 和 control plane 能互相定位。</li>
+<li>Kubernetes 内部常用 headless service、DNS、label selector 和 endpoint mapping，但多角色 serving 还需要理解业务拓扑。</li>
+<li>路由策略要感知 tenant、model、role、capacity、KV location、cache affinity 和 failure state。</li>
+<li>动态扩缩容时，endpoint 变化必须和 readiness、drain、session stickiness、backpressure 协调，否则容易产生黑洞流量。</li>
+<li>路由层是 SLO 和资源效率的交汇点，不能只做四层负载均衡。</li>
+</ul>
+<h2>阅读和维护建议</h2>
+<ul>
+<li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
+<li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
+<li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
+</ul>
+<h2>英文术语</h2>
+<ul>
+<li><code>service discovery</code></li>
+<li><code>routing</code></li>
+<li><code>DNS</code></li>
+<li><code>endpoint</code></li>
+</ul>
+<h2>来源说明</h2>
+<ul>
+<li><code>多角色 CRD 的服务发现.docx</code></li>
+<li><code>动态调度 ep 到 service 路由方案.docx</code></li>
+<li><code>分布式推理CRD概念设计.docx</code></li>
+<li><code>Seed Serving 多角色编排服务介绍.docx</code></li>
+</ul>
+</div>
+        </article>
+        <aside class="post-aside">
+          <div class="aside-block">
+            <label for="page-search">站内搜索</label>
+            <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
+          </div>
+          <div class="aside-block">
+            <h2>同类文章</h2>
+            <div class="aside-list"><a class="post-card compact-card" href="autoscaling-multirole-serving.html" data-search="多角色服务自动扩缩容 多角色服务自动扩缩容 讨论 hpa/hwa、external metrics、worker-level 指标、cronhpa、keda、warm pool 和 stateful scale-down。 hpa hwa keda warmpool autoscaling hpa hwa crd worker serving">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>多角色服务自动扩缩容</strong>
+    <span>讨论 HPA/HWA、External metrics、Worker-level 指标、CronHPA、KEDA、warm pool 和 stateful scale-down。</span>
+    <div class="term-row"><code>HPA</code><code>HWA</code><code>KEDA</code></div>
+  </a>
+<a class="post-card compact-card" href="crd-schema-reference.html" data-search="crd schema 参考 crd schema 参考 抽取 application、worker、role、workerset、status、autoscaling 字段，作为 schema 查询页。 application workerset status autoscaling crd operator schema application worker">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>CRD Schema 参考</strong>
+    <span>抽取 Application、Worker、Role、WorkerSet、status、autoscaling 字段，作为 schema 查询页。</span>
+    <div class="term-row"><code>Application</code><code>WorkerSet</code><code>status</code></div>
+  </a>
+<a class="post-card compact-card" href="operator-crd.html" data-search="operator 与 crd 编排 operator 与 crd 编排 推理多角色、多 shard、多 worker 的 kubernetes-style 控制面抽象和生命周期管理。 operator crd worker role operator crd kubernetes orchestration multi-role">
+    <span class="card-meta">组件设计 · 2026-05-28</span>
+    <strong>Operator 与 CRD 编排</strong>
+    <span>推理多角色、多 shard、多 Worker 的 Kubernetes-style 控制面抽象和生命周期管理。</span>
+    <div class="term-row"><code>Operator</code><code>CRD</code><code>Worker</code></div>
+  </a></div>
+          </div>
+          <div class="aside-block">
+            <h2>发布</h2>
+            <p>本页由纯静态 HTML 生成，可直接部署到 GitHub Pages。</p>
+            <a class="inline-link" href="../README.html">查看构建与发布说明</a>
+          </div>
+        </aside>
+      </div>
+    
+  </main>
+  <footer class="site-footer">
+    <span>llm_memory</span>
+    <span>中文主叙述 · 英文术语保留 · GitHub Pages ready</span>
+  </footer>
+  <script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="说明如何阅读、构建静态网页、发布到 GitHub Pages，以及 raw source 与 wiki synthesis 的关系。">
+  <title>项目说明 · llm_memory</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="article">
+  <header class="site-header">
+    <a class="site-brand" href="index.html">
+      <span>llm_memory</span>
+      <small>AI Infra 中文 Blog</small>
+    </a>
+    <nav class="top-nav">
+      <a class="" href="index.html">首页</a><a class="" href="index.html#topics">主题</a><a class="" href="index.html#systems">系统</a><a class="" href="sources/classified-index.html">源文档</a><a class="" href="log.html">维护日志</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    
+      <div class="post-shell">
+        <article class="post">
+          <header class="post-header">
+            <a class="post-category" href="index.html#docs">项目文档</a>
+            <h1>项目说明</h1>
+            <p>说明如何阅读、构建静态网页、发布到 GitHub Pages，以及 raw source 与 wiki synthesis 的关系。</p>
+            <div class="post-meta">
+              <span>未标注日期</span>
+              <span>README.md</span>
+              
+            </div>
+            <div class="term-row"><code>GitHub Pages</code><code>static site</code><code>wiki</code></div>
+          </header>
+          <div class="body-label">中文正文（保留英文术语）</div>
+          <div class="markdown"><p>这是一个面向 AI Infra 的中文技术 blog / 本地知识库。仓库保留原始 source
+documents，同时在 <code>wiki/</code> 下维护一层可持续更新的中文主叙述知识层。</p>
+<p>网页版本采用 GitHub Pages 友好的 blog 形式，以及“中文解释 + 英文术语保留”的方式：中文负责阅读路径和结论，
+<code>LLM Serving</code>、<code>PD Disaggregation</code>、<code>KV Cache</code>、<code>Agentic RL</code> 等英文术语保留，
+方便继续对照源码、论文、PR 和内部文档。</p>
+<h2>从这里开始</h2>
+<ul>
+<li><a href="index.html">Wiki 索引</a></li>
+<li><a href="log.html">维护日志</a></li>
+<li><a href="sources/classified-index.html">原始文档分层索引</a></li>
+<li><a href="sources/catalog.html">源文件目录</a></li>
+<li><a href="AGENTS.html">LLM 维护规则</a></li>
+</ul>
+<h2>以网页形式打开</h2>
+<p>构建静态 blog：</p>
+<pre><code class="language-bash">npm install
+npm run build:site
+</code></pre>
+<p>然后在浏览器中打开 <code>site/index.html</code>，或启动本地预览：</p>
+<pre><code class="language-bash">npm run serve:site
+</code></pre>
+<p>本地预览地址默认是 <code>http://127.0.0.1:4173/index.html</code>。生成结果是纯静态
+HTML、CSS 和 JavaScript，首页是 blog 索引，文章页是技术 blog 阅读版式。</p>
+<p>如果需要把 <code>wiki/</code> 源文档统一刷新成中文主叙述结构，可以运行：</p>
+<pre><code class="language-bash">npm run rewrite:wiki
+</code></pre>
+<p><code>tools/localize_wiki_sources.mjs</code> 是早期只添加中文导读的兼容脚本；当前主线使用
+<code>tools/rewrite_wiki_chinese_main.mjs</code>，会把可见正文改成中文主体。</p>
+<p>如果新增、删除或重命名了原始 source documents，可以刷新 source 层索引：</p>
+<pre><code class="language-bash">npm run build:sources
+</code></pre>
+<p>其中 <code>wiki/sources/catalog.md</code> 是平铺目录，<code>wiki/sources/classified-index.md</code>
+按照 wiki 主题建立分层阅读入口，不移动原始文件。</p>
+<p>如果使用 Codex 内置 runtime，而不是本地 <code>npm install</code>，可以运行：</p>
+<pre><code class="language-bash">NODE_PATH=/Users/bytedance/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules \
+  /Users/bytedance/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node \
+  tools/build_static_site.mjs
+</code></pre>
+<h2>发布到 GitHub Pages</h2>
+<ol>
+<li>创建或使用现有 GitHub 仓库。</li>
+<li>将本仓库 push 到 <code>origin</code>。</li>
+<li>在 GitHub Settings -&gt; Pages 中选择 GitHub Actions 作为发布来源。</li>
+<li><code>.github/workflows/pages.yml</code> 会在 push 到 <code>main</code> 或 <code>master</code> 时构建
+<code>site/</code> 并部署。构建产物包含 <code>.nojekyll</code>，因此 GitHub Pages 会按普通
+静态站点发布，而不是交给 Jekyll 再处理。</li>
+</ol>
+<h2>当前重点</h2>
+<p>当前知识库以 AI Infra 为中心，重点包括：</p>
+<ul>
+<li>LLM 推理服务、PD 分离、KV Cache、调度器和框架设计。</li>
+<li>Agentic RL 基础设施、rollout 系统、sandbox execution、Fornax 和 Swalm。</li>
+<li>多角色推理系统的 Kubernetes-style Operator / CRD 编排。</li>
+<li>稳定性、可观测性、故障处理和集群级可靠性。</li>
+<li>面向训练和推理的 GPU/NPU/network/communication 基础设施。</li>
+</ul>
+<p>原始 source files 仍保留在仓库根目录和 <code>lark_docs/</code>。<code>wiki/</code> 是后续综合、
+检索和维护的主层。</p>
+</div>
+        </article>
+        <aside class="post-aside">
+          <div class="aside-block">
+            <label for="page-search">站内搜索</label>
+            <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
+          </div>
+          <div class="aside-block">
+            <h2>同类文章</h2>
+            <div class="aside-list"><p class="muted">暂无同类文章。</p></div>
+          </div>
+          <div class="aside-block">
+            <h2>发布</h2>
+            <p>本页由纯静态 HTML 生成，可直接部署到 GitHub Pages。</p>
+            <a class="inline-link" href="README.html">查看构建与发布说明</a>
+          </div>
+        </aside>
+      </div>
+    
+  </main>
+  <footer class="site-footer">
+    <span>llm_memory</span>
+    <span>中文主叙述 · 英文术语保留 · GitHub Pages ready</span>
+  </footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Diffusion/video/image serving 的 DAG 调度、Push-to-Pull 重构、Redis 队列、P2P tensor transfer 和队列 HPA。">
+  <title>veFuser · llm_memory</title>
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="article">
+  <header class="site-header">
+    <a class="site-brand" href="../index.html">
+      <span>llm_memory</span>
+      <small>AI Infra 中文 Blog</small>
+    </a>
+    <nav class="top-nav">
+      <a class="" href="../index.html">首页</a><a class="" href="../index.html#topics">主题</a><a class=" active" href="../index.html#systems">系统</a><a class="" href="../sources/classified-index.html">源文档</a><a class="" href="../log.html">维护日志</a>
+    </nav>
+  </header>
+  <main class="site-main">
+    
+      <div class="post-shell">
+        <article class="post">
+          <header class="post-header">
+            <a class="post-category" href="../index.html#systems">系统解析</a>
+            <h1>veFuser</h1>
+            <p>Diffusion/video/image serving 的 DAG 调度、Push-to-Pull 重构、Redis 队列、P2P tensor transfer 和队列 HPA。</p>
+            <div class="post-meta">
+              <span>2026-05-28</span>
+              <span>wiki/systems/vefuser.md</span>
+              <a href="../sources/classified-index.html">分层索引</a><a href="../sources/catalog.html">源文件目录</a>
+            </div>
+            <div class="term-row"><code>veFuser</code><code>Diffusion</code><code>Pull scheduling</code><code>KEDA</code></div>
+          </header>
+          <div class="body-label">中文正文（保留英文术语）</div>
+          <div class="markdown"><h2>摘要</h2>
+<p>Diffusion/video/image serving 的 DAG 调度、Push-to-Pull 重构、Redis 队列、P2P tensor transfer 和队列 HPA。</p>
+<h2>中文正文</h2>
+<ul>
+<li>veFuser 面向 diffusion/video/image serving，把生成任务表示为 DAG，并通过队列、P2P tensor transfer 和 HPA 管理服务。</li>
+<li>Push-to-Pull 重构把主动推送改为下游按需拉取，目标是降低拥塞、提升调度可控性和失败恢复能力。</li>
+<li>Redis 队列和 KEDA/HPA 让扩缩容可以跟随 DAG stage 的 backlog，而不是只看单服务 CPU/GPU 指标。</li>
+<li>P2P tensor transfer 减少中间结果落盘或绕行，但要处理一致性、超时、重试和资源释放。</li>
+<li>该系统提醒我们：生成式服务治理也属于 AI Infra，和 LLM serving 共享队列、SLO、重试和观测问题。</li>
+</ul>
+<h2>阅读和维护建议</h2>
+<ul>
+<li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
+<li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
+<li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
+</ul>
+<h2>英文术语</h2>
+<ul>
+<li><code>veFuser</code></li>
+<li><code>Diffusion</code></li>
+<li><code>Pull scheduling</code></li>
+<li><code>KEDA</code></li>
+</ul>
+<h2>来源说明</h2>
+<ul>
+<li><code>veFuser 调度重构架构演进与服务治理技术报告.docx</code></li>
+<li><code>veFuser One Page-1.docx</code></li>
+<li><code>AIGC模型推理优化和服务治理.docx</code></li>
+<li><code>lark_docs/AIGC模型推理优化和服务治理.docx</code></li>
+</ul>
+</div>
+        </article>
+        <aside class="post-aside">
+          <div class="aside-block">
+            <label for="page-search">站内搜索</label>
+            <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
+          </div>
+          <div class="aside-block">
+            <h2>同类文章</h2>
+            <div class="aside-list"><a class="post-card compact-card" href="alphaseed-rollout.html" data-search="alphaseed rollout alphaseed rollout 总结 alphaseed 从 offline batch 到 online streaming、half-async、in-flight weight update 的演进。 alphaseed rollout half-async weight sync alphaseed rollout agentic-rl verl sandbox">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>Alphaseed Rollout</strong>
+    <span>总结 Alphaseed 从 offline batch 到 online streaming、half-async、in-flight weight update 的演进。</span>
+    <div class="term-row"><code>Alphaseed</code><code>rollout</code><code>half-async</code></div>
+  </a>
+<a class="post-card compact-card" href="fornax-swalm-sandbox.html" data-search="fornax、swalm 与 sandbox fornax、swalm 与 sandbox 梳理 agent ops 平台、agent 框架和隔离执行环境之间的边界与集成问题。 fornax swalm sandbox agent ops fornax swalm sandbox agent-ops rollout">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>Fornax、Swalm 与 Sandbox</strong>
+    <span>梳理 Agent Ops 平台、Agent 框架和隔离执行环境之间的边界与集成问题。</span>
+    <div class="term-row"><code>Fornax</code><code>Swalm</code><code>Sandbox</code></div>
+  </a>
+<a class="post-card compact-card" href="inferobust.html" data-search="inferobust inferobust 异构推理管理、容错、健康检查、executor/driver/service 失效恢复和多角色部署的系统页。 inferobust executor driver fault handling inferobust reliability inference heterogeneous-serving">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>Inferobust</strong>
+    <span>异构推理管理、容错、健康检查、Executor/Driver/Service 失效恢复和多角色部署的系统页。</span>
+    <div class="term-row"><code>Inferobust</code><code>Executor</code><code>Driver</code></div>
+  </a>
+<a class="post-card compact-card" href="sglang-runtime.html" data-search="sglang runtime sglang runtime 组织 sglang 的 pdrouter、dataparallelcontroller、scheduler/eplb、dp attention 和 elastic ep。 sglang pdrouter dp attention elastic ep sglang inference pd-disaggregation eplb elastic-ep dp-attention">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>SGLang Runtime</strong>
+    <span>组织 SGLang 的 PDRouter、DataParallelController、Scheduler/EPLB、DP Attention 和 Elastic EP。</span>
+    <div class="term-row"><code>SGLang</code><code>PDRouter</code><code>DP Attention</code></div>
+  </a>
+<a class="post-card compact-card" href="stormservice.html" data-search="stormservice stormservice 多角色 serving 的 stormservice/roleset/role/pod 编排模型和状态管理。 stormservice roleset replica mode pooled mode stormservice orchestration multi-role serving">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>StormService</strong>
+    <span>多角色 serving 的 StormService/RoleSet/Role/Pod 编排模型和状态管理。</span>
+    <div class="term-row"><code>StormService</code><code>RoleSet</code><code>Replica Mode</code></div>
+  </a>
+<a class="post-card compact-card" href="xllm.html" data-search="xllm xllm xllm 的 zero-overhead runtime、分图推理、kv cache store 和 vlm encoder 分离设计。 xllm zero-overhead kvcachestore vlm xllm inference runtime kv-cache vlm">
+    <span class="card-meta">系统解析 · 2026-05-28</span>
+    <strong>xLLM</strong>
+    <span>xLLM 的 zero-overhead runtime、分图推理、KV Cache Store 和 VLM encoder 分离设计。</span>
+    <div class="term-row"><code>xLLM</code><code>zero-overhead</code><code>KVCacheStore</code></div>
+  </a></div>
+          </div>
+          <div class="aside-block">
+            <h2>发布</h2>
+            <p>本页由纯静态 HTML 生成，可直接部署到 GitHub Pages。</p>
+            <a class="inline-link" href="../README.html">查看构建与发布说明</a>
+          </div>
+        </aside>
+      </div>
+    
+  </main>
+  <footer class="site-footer">
+    <span>llm_memory</span>
+    <span>中文主叙述 · 英文术语保留 · GitHub Pages ready</span>
+  </footer>
+  <script src="../assets/site.js"></script>
+</body>
+</html>
