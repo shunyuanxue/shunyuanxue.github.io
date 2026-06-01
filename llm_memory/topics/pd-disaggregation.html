@@ -7,7 +7,7 @@
   <title>Prefill/Decode 分离 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>PD Disaggregation</code><code>prefill</code><code>decode</code><code>KV transfer</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>PD 分离的通用设计空间：部署形态、KV 传输、路由、调度、故障处理和 autoscaling。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>PD 分离把 prefill 和 decode 放到不同资源池，使两种负载可以独立扩缩容、独立调度和独立优化。</li>
 <li>关键难点是 KV transfer：传输粒度、layer-wise 还是 request-wise、跨机网络、cache ownership 和失败清理都会影响收益。</li>
@@ -43,20 +43,20 @@
 <li>PD 不是天然更快；当 prompt 很短、网络慢、KV 转换昂贵或 batch 太小，分离成本可能超过收益。</li>
 <li>真正可用的 PD 系统需要把 autoscaling、placement、backpressure、retry、observability 和 cache cleanup 一起设计。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>PD Disaggregation</code></li>
 <li><code>prefill</code></li>
 <li><code>decode</code></li>
 <li><code>KV transfer</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>PD分离统一架构设计.docx</code></li>
 <li><code>SGLang PD 分离与 EPLB 在线动态负载均衡：设计与实现深度分析.docx</code></li>

@@ -7,7 +7,7 @@
   <title>采样与生成策略 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>sampling</code><code>temperature</code><code>top-p</code><code>beam search</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>解释 temperature、top-k、top-p、min-p、penalty、greedy/beam search 等生成控制参数对服务行为的影响。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>采样参数决定生成行为，也会影响线上服务的稳定性、成本和用户感知质量。</li>
 <li><code>temperature</code> 控制概率分布平滑度，<code>top-p/top-k/min-p</code> 控制候选集合，penalty 类参数控制重复和风格漂移。</li>
@@ -43,20 +43,20 @@
 <li>serving 系统需要把采样配置纳入可观测性，因为异常输出有时来自参数组合，而不是模型或 runtime bug。</li>
 <li>多租户平台应把允许的采样范围、默认值、审计日志和质量回放固化为产品/平台契约。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>sampling</code></li>
 <li><code>temperature</code></li>
 <li><code>top-p</code></li>
 <li><code>beam search</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>lark_docs/LLM推理采样(Sampling).docx</code></li>
 </ul>

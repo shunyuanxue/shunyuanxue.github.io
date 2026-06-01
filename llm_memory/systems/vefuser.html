@@ -7,7 +7,7 @@
   <title>veFuser · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>veFuser</code><code>Diffusion</code><code>Pull scheduling</code><code>KEDA</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>Diffusion/video/image serving 的 DAG 调度、Push-to-Pull 重构、Redis 队列、P2P tensor transfer 和队列 HPA。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>veFuser 面向 diffusion/video/image serving，把生成任务表示为 DAG，并通过队列、P2P tensor transfer 和 HPA 管理服务。</li>
 <li>Push-to-Pull 重构把主动推送改为下游按需拉取，目标是降低拥塞、提升调度可控性和失败恢复能力。</li>
@@ -43,20 +43,20 @@
 <li>P2P tensor transfer 减少中间结果落盘或绕行，但要处理一致性、超时、重试和资源释放。</li>
 <li>该系统提醒我们：生成式服务治理也属于 AI Infra，和 LLM serving 共享队列、SLO、重试和观测问题。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>veFuser</code></li>
 <li><code>Diffusion</code></li>
 <li><code>Pull scheduling</code></li>
 <li><code>KEDA</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>veFuser 调度重构架构演进与服务治理技术报告.docx</code></li>
 <li><code>veFuser One Page-1.docx</code></li>

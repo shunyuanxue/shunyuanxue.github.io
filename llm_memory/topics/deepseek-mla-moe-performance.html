@@ -7,7 +7,7 @@
   <title>DeepSeek MLA/MoE 性能建模 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>DeepSeek</code><code>MLA</code><code>MoE</code><code>EPLB</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>面向 DeepSeek-style serving 的模型形状、MLA KV、EP/EPLB、硬件和网络 bound 推理性能分析。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>DeepSeek V3/R1 是检验 inference stack 的复杂样本：MLA 改变 KV，MoE 改变计算/通信，长上下文改变 batch 和专家饱和度。</li>
 <li>MLA 用压缩 latent KV 降低 cache 成本，但也改变并行切分、cache 复用和 rank 之间的状态布局。</li>
@@ -43,20 +43,20 @@
 <li>prefill 与 decode 需要不同并行策略：prefill 偏吞吐与大 batch，decode 偏低延迟、小步迭代和 expert spread。</li>
 <li>性能建模必须把 FP8/BF16、RDMA 带宽、EP size、batch shape、overlap、MFU 和 SLO 组合起来看。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>DeepSeek</code></li>
 <li><code>MLA</code></li>
 <li><code>MoE</code></li>
 <li><code>EPLB</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>lark_docs/DeepSeek 推理系统和参数性能分析.docx</code></li>
 <li><code>lark_docs/DeepSeek-V3R1模型结构和计算复杂度分析.docx</code></li>

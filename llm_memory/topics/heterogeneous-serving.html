@@ -7,7 +7,7 @@
   <title>异构推理服务 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>heterogeneous serving</code><code>CPU/GPU</code><code>NPU/GPU</code><code>VLM encoder</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>把 NPU/GPU、CPU/GPU、VLM encoder、diffusion DAG 等不同硬件/角色边界统一成 serving 架构问题。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>异构 serving 把不同硬件、不同模型子图或不同角色组合成一个服务系统，例如 NPU/GPU、CPU/GPU、VLM encoder 与 diffusion DAG。</li>
 <li>异构化的动机是用更匹配的资源承载不同阶段，但它会引入数据格式、调度、路由、传输和故障隔离复杂度。</li>
@@ -43,20 +43,20 @@
 <li>VLM encoder 分离和 diffusion DAG serving 都说明 serving 不一定是单一 decoder loop，而可能是多阶段 graph。</li>
 <li>可运营的异构系统需要统一的 capacity model、队列指标、跨角色 tracing、fallback 路径和灰度策略。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>heterogeneous serving</code></li>
 <li><code>CPU/GPU</code></li>
 <li><code>NPU/GPU</code></li>
 <li><code>VLM encoder</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>Report_ Inferobust系统深度分析.docx</code></li>
 <li><code>Inferobust 异构推理管理方案.docx</code></li>

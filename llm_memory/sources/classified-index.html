@@ -7,7 +7,7 @@
   <title>原始文档分层索引 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -26,23 +26,24 @@
             <h1>原始文档分层索引</h1>
             <p>按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。</p>
             <div class="post-meta">
-              <span>2026-05-31</span>
+              <span>2026-06-01</span>
               <span>wiki/sources/classified-index.md</span>
               <a href="../sources/classified-index.html">分层索引</a><a href="../sources/catalog.html">源文件目录</a>
             </div>
             <div class="term-row"><code>source taxonomy</code><code>classification</code><code>OCR</code><code>wiki index</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>本页按照 wiki 的主题划分，把原始 <code>.docx</code>、<code>.pdf</code>、<code>.png</code>、<code>.drawio</code> source documents 组织成分层索引。原始文件仍保留在仓库根目录和 <code>lark_docs/</code>，本页只建立阅读路径和维护入口。</p>
-<h2>使用方式</h2>
+<h2 id="使用方式">使用方式</h2>
 <ul>
 <li>先按主题找到相关原始文档，再进入关联 wiki 页面看中文结论。</li>
 <li>同一 source document 可以出现在多个主题下，因为 PD/KV、DeepSeek、硬件网络、稳定性等经常交叉。</li>
 <li><code>需人工/OCR 复核</code> 和 <code>低抽取</code> 的文档不能直接作为强结论来源，需要回到原图、PDF 或人工读图确认。</li>
+<li>本页在私有版本中会展开每篇 source document 的章节入口和代表性原文片段；公开版本会剥离这些 private detail。</li>
 <li>完整平铺目录仍在 <a href="catalog.html">源文件目录</a>，重复文件和治理状态见 <a href="source-curation.html">源文件治理</a>。</li>
 </ul>
-<h2>顶层主题总览</h2>
+<h2 id="顶层主题总览">顶层主题总览</h2>
 <table>
 <thead>
 <tr>
@@ -125,8 +126,8 @@
 <td><a href="catalog.html">源文件目录</a></td>
 </tr>
 </tbody></table>
-<h2>分类明细</h2>
-<h3>1. 推理服务与 Serving 总入口</h3>
+<h2 id="分类明细">分类明细</h2>
+<h3 id="1-推理服务与-serving-总入口">1. 推理服务与 Serving 总入口</h3>
 <p>LLM 推理基础概念、框架、调度、并行、AIGC 服务治理和通用 serving 运行时。</p>
 <ul>
 <li>关联 wiki：<a href="../topics/llm-serving.html">LLM 推理服务</a>；<a href="../topics/inference-optimization.html">推理优化方法谱系</a>；<a href="../comparisons/serving-frameworks.html">Serving 框架对比</a></li>
@@ -608,7 +609,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3>2. PD 分离与 KV Cache</h3>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h3 id="2-pd-分离与-kv-cache">2. PD 分离与 KV Cache</h3>
 <p>Prefill/Decode 分离、KV transfer、prefix cache、Mooncake、DistAgg、SplitServe 和 cache-aware routing。</p>
 <ul>
 <li>关联 wiki：<a href="../topics/pd-disaggregation.html">Prefill/Decode 分离</a>；<a href="../topics/npu-gpu-pd-disaggregation.html">NPU/GPU 异构 PD 分离</a>；<a href="../topics/kv-cache.html">KV Cache</a>；<a href="../topics/vllm-scheduler.html">vLLM Scheduler</a></li>
@@ -890,7 +894,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3>3. 生成策略、解码优化与量化</h3>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h3 id="3-生成策略解码优化与量化">3. 生成策略、解码优化与量化</h3>
 <p>Sampling、投机推理、EAGLE/MTP、Chunked Prefill、Flash Decoding、FP8、W4A8、KV8 和 INT4 MoE。</p>
 <ul>
 <li>关联 wiki：<a href="../topics/sampling-and-generation.html">采样与生成策略</a>；<a href="../topics/speculative-decoding-mtp.html">投机解码与 MTP</a>；<a href="../topics/chunked-prefill-flash-decoding.html">Chunked Prefill 与 Flash Decoding</a>；<a href="../topics/quantization-serving.html">推理量化</a></li>
@@ -972,7 +979,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3>4. MoE、DeepSeek、MLA 与 Kernel/并行</h3>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h3 id="4-moedeepseekmla-与-kernel并行">4. MoE、DeepSeek、MLA 与 Kernel/并行</h3>
 <p>MoE 负载均衡、EPLB、DeepSeek V3/R1、MLA、FlashMLA、Ulysses/SPTP、DeepEP 和 kernel performance。</p>
 <ul>
 <li>关联 wiki：<a href="../topics/moe-load-balancing-eplb.html">MoE 负载均衡与 EPLB</a>；<a href="../topics/deepseek-mla-moe-performance.html">DeepSeek MLA/MoE 性能建模</a>；<a href="../topics/flashmla-ulysses-sptp.html">FlashMLA 与 Ulysses/SPTP</a>；<a href="../topics/deepep-stepmesh-communication.html">DeepEP 与 StepMesh 通信</a></li>
@@ -1134,7 +1144,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3>5. Linear Attention 与 Hybrid Cache</h3>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h3 id="5-linear-attention-与-hybrid-cache">5. Linear Attention 与 Hybrid Cache</h3>
 <p>Linear Attention、QwenNext、Kimi、GDN/KDA、SSM/Conv cache、state cache 与框架适配。</p>
 <ul>
 <li>关联 wiki：<a href="../topics/linear-attention-serving.html">Linear Attention Serving</a></li>
@@ -1168,7 +1181,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3>6. Agentic RL、Rollout、Sandbox 与 VLA</h3>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h3 id="6-agentic-rlrolloutsandbox-与-vla">6. Agentic RL、Rollout、Sandbox 与 VLA</h3>
 <p>Agentic RL 基础设施、rollout server、tool calling、sandbox、verl、VeOmni、Slime、Alphaseed/Swalm 和 VLA 闭环。</p>
 <ul>
 <li>关联 wiki：<a href="../topics/agentic-rl-infra.html">Agentic RL 基础设施</a>；<a href="../topics/agentic-rl-training-frameworks.html">Agentic RL 训练框架</a>；<a href="../topics/vla-rl-closed-loop.html">VLA RL 闭环</a>；<a href="../systems/fornax-swalm-sandbox.html">Fornax、Swalm 与 Sandbox</a>；<a href="../systems/alphaseed-rollout.html">Alphaseed Rollout</a></li>
@@ -1378,7 +1394,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3>7. 编排、Operator、CRD 与扩缩容</h3>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h3 id="7-编排operatorcrd-与扩缩容">7. 编排、Operator、CRD 与扩缩容</h3>
 <p>分布式推理 Operator、CRD、StormService、Worker、Role、HPA/HWA/KEDA、service discovery 和多角色扩缩容。</p>
 <ul>
 <li>关联 wiki：<a href="../components/operator-crd.html">Operator 与 CRD 编排</a>；<a href="../components/crd-schema-reference.html">CRD Schema 参考</a>；<a href="../components/service-discovery-routing.html">服务发现与路由</a>；<a href="../components/autoscaling-multirole-serving.html">多角色服务自动扩缩容</a>；<a href="../systems/stormservice.html">StormService</a></li>
@@ -1508,7 +1527,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3>8. 稳定性、可观测性、SDC 与事故复盘</h3>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h3 id="8-稳定性可观测性sdc-与事故复盘">8. 稳定性、可观测性、SDC 与事故复盘</h3>
 <p>数据面稳定性、观测规范、Inferobust、SDC、robust training、故障检测处理和长上下文事故复盘。</p>
 <ul>
 <li>关联 wiki：<a href="../topics/stability-observability.html">稳定性与可观测性</a>；<a href="../topics/sdc-and-hardware-reliability.html">SDC 与硬件可靠性</a>；<a href="../topics/training-cluster-stability.html">训练集群稳定性</a>；<a href="../incidents/long-context-split-latency.html">长上下文分图延迟事故</a>；<a href="../systems/inferobust.html">Inferobust</a></li>
@@ -1646,7 +1668,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3>9. 硬件、集群网络与通信基础</h3>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h3 id="9-硬件集群网络与通信基础">9. 硬件、集群网络与通信基础</h3>
 <p>GPU/NPU、IB/RDMA、scale-up/scale-out、拓扑亲和、集合通信、FP8/Hopper 和训练/推理性能建模。</p>
 <ul>
 <li>关联 wiki：<a href="../topics/hardware-cluster-networking.html">硬件与集群网络</a>；<a href="../topics/deepep-stepmesh-communication.html">DeepEP 与 StepMesh 通信</a>；<a href="../topics/training-cluster-stability.html">训练集群稳定性</a></li>
@@ -1824,7 +1849,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3>10. 异构 Serving 与生成式服务治理</h3>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h3 id="10-异构-serving-与生成式服务治理">10. 异构 Serving 与生成式服务治理</h3>
 <p>NPU/GPU、CPU/GPU、VLM encoder、veFuser、diffusion/video serving、DAG 调度和 AIGC 服务治理。</p>
 <ul>
 <li>关联 wiki：<a href="../topics/heterogeneous-serving.html">异构推理服务</a>；<a href="../topics/npu-gpu-pd-disaggregation.html">NPU/GPU 异构 PD 分离</a>；<a href="../systems/xllm.html">xLLM</a>；<a href="../systems/vefuser.html">veFuser</a></li>
@@ -1930,7 +1958,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2>待归类/弱匹配</h2>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h2 id="待归类弱匹配">待归类/弱匹配</h2>
 <p>这些文档没有被当前规则明确归入主题。后续可以通过人工阅读标题、正文和图示，将其补到上面的主题中。</p>
 <table>
 <thead>
@@ -1976,7 +2007,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2>低抽取/视觉复核队列</h2>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
+<h2 id="低抽取视觉复核队列">低抽取/视觉复核队列</h2>
 <p>这些文档可能以图片、PDF 页面、drawio 或嵌入对象为主，文本抽取质量不足。引用前需要 OCR、截图复核或人工读图。</p>
 <table>
 <thead>
@@ -2086,6 +2120,9 @@
 <td></td>
 </tr>
 </tbody></table>
+<blockquote>
+<p>私有全文转写、章节入口和原文片段仅在本地 <code>private_site/</code> 中展示；公开版保留主题目录和抽取质量信息。</p>
+</blockquote>
 </div>
         </article>
         <aside class="post-aside">
@@ -2102,7 +2139,7 @@
     <div class="term-row"><code>Agentic RL</code><code>VeOmni</code><code>Slime</code></div>
   </a>
 <a class="post-card compact-card" href="catalog.html" data-search="源文件目录 源文件目录 自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。 source catalog extraction duplicates sources catalog">
-    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <span class="card-meta">源文档索引 · 2026-06-01</span>
     <strong>源文件目录</strong>
     <span>自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。</span>
     <div class="term-row"><code>source catalog</code><code>extraction</code><code>duplicates</code></div>

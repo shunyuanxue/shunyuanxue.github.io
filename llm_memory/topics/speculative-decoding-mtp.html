@@ -7,7 +7,7 @@
   <title>投机解码与 MTP · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>speculative decoding</code><code>EAGLE</code><code>MTP</code><code>KV rollback</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>覆盖 draft model、EAGLE/EAGLE3、MTP/NEXTN、n-gram drafting、acceptance 和 KV rollback 的系统要求。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>投机解码的基本思想是用便宜路径先猜多个 token，再由目标模型批量验证，只有被接受的 token 才进入最终序列。</li>
 <li>draft model、EAGLE/EAGLE3、MTP/NEXTN、n-gram drafting 都是不同的猜测来源，但共同依赖 acceptance rate 和验证成本。</li>
@@ -43,20 +43,20 @@
 <li>MTP 与模型训练耦合更强，外部 draft model 部署更灵活；两者都需要评估质量、延迟、显存和多实例协调成本。</li>
 <li>当输出高度随机、draft 与 target 差距较大、acceptance rate 低或 batch 很小，投机解码可能反而变慢。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>speculative decoding</code></li>
 <li><code>EAGLE</code></li>
 <li><code>MTP</code></li>
 <li><code>KV rollback</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>lark_docs/投机推理的原理与常见方案.docx</code></li>
 <li><code>lark_docs/Eagle3.docx</code></li>

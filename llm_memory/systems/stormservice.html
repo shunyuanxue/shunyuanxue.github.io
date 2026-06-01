@@ -7,7 +7,7 @@
   <title>StormService · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>StormService</code><code>RoleSet</code><code>Replica Mode</code><code>Pooled Mode</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>多角色 serving 的 StormService/RoleSet/Role/Pod 编排模型和状态管理。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>StormService 把多角色 serving 抽象成 StormService、RoleSet、Role、Pod 等层级，适合表达复杂推理拓扑。</li>
 <li>RoleSet 管理一组逻辑角色，Role 描述具体运行单元，Pod 承载最终 workload。</li>
@@ -43,20 +43,20 @@
 <li>状态管理要从 Pod 聚合到 Role、RoleSet 和 Service，才能让控制面理解整体可用性。</li>
 <li>本系统页适合作为 Operator/CRD 页面里的具名实现案例。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>StormService</code></li>
 <li><code>RoleSet</code></li>
 <li><code>Replica Mode</code></li>
 <li><code>Pooled Mode</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>多角色编排服务 StormService 设计.docx</code></li>
 <li><code>Seed Serving 多角色编排服务介绍.docx</code></li>

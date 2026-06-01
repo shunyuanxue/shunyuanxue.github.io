@@ -7,7 +7,7 @@
   <title>推理量化 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>FP8</code><code>W4A8</code><code>KV8</code><code>PTQ</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>梳理 FP8、W4A8、KV-cache 量化、DS-R1 W4A8KV8 workflow、scale 布局和线上质量校验风险。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>推理量化的目标是在可接受质量损失下减少显存、带宽和算子成本，常见路径包括 FP8、INT8、INT4、W4A8 和 KV-cache quantization。</li>
 <li>权重量化、激活量化和 KV 量化的风险不同：权重影响模型能力，激活影响动态范围，KV 影响长上下文和多轮会话稳定性。</li>
@@ -43,20 +43,20 @@
 <li>MoE 量化还要考虑 grouped GEMM、expert routing、热专家分布和通信 payload，不能只看单层 GEMM benchmark。</li>
 <li>线上推广应采用灰度、质量回放、异常样本分析和按模型/任务分层的阈值，而不是只依赖平均 perplexity 或离线吞吐。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>FP8</code></li>
 <li><code>W4A8</code></li>
 <li><code>KV8</code></li>
 <li><code>PTQ</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>lark_docs/大模型推理量化(Quantization)基础速览.docx</code></li>
 <li><code>lark_docs/FP8计算在模型训练中的应用.docx</code></li>

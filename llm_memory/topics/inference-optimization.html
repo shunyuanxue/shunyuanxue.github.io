@@ -7,7 +7,7 @@
   <title>推理优化方法谱系 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>prefill</code><code>decode</code><code>quantization</code><code>speculative decoding</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>按 prefill/decode 差异组织推理优化：token 减少、量化、KV 复用、投机解码、架构优化、服务层调度和硬件并行。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>推理优化可以分为减少 token、减少模型步、降低数值精度、优化 KV/cache、优化 kernel、优化调度和优化硬件拓扑。</li>
 <li>prefill 优化偏向输入压缩、chunked prefill、attention kernel 和并行切分；decode 优化偏向 KV 读取、投机解码、量化和 batch 合并。</li>
@@ -43,20 +43,20 @@
 <li>Linear Attention、SSM/Conv cache、hybrid cache 等模型结构变化，会把 serving 问题从标准 KV cache 扩展为多状态缓存管理。</li>
 <li>实际落地应按瓶颈排序：先确认是 compute-bound、memory-bound、network-bound、scheduler-bound 还是 reliability-bound，再选技术。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>prefill</code></li>
 <li><code>decode</code></li>
 <li><code>quantization</code></li>
 <li><code>speculative decoding</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>LLM推理加速方法2025汇总.docx</code></li>
 <li><code>lark_docs/LLM推理加速方法2025汇总.docx</code></li>

@@ -7,7 +7,7 @@
   <title>SDC 与硬件可靠性 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>SDC</code><code>hardware reliability</code><code>quarantine</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>描述 silent data corruption 的检测、隔离、诊断、硬件 quarantine 和业务侧质量 validator。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>SDC 是不立即 crash 却悄悄污染数值结果的硬件/低层计算错误，在训练和推理中都可能造成质量异常。</li>
 <li>AI 系统里的 SDC 可能表现为 NaN、梯度爆炸、参数污染、黑帧、坏生成或难以复现的质量回退。</li>
@@ -43,19 +43,19 @@
 <li>低误报和低开销很关键；如果检测成本过高，就无法覆盖线上高吞吐路径。</li>
 <li>SDC 应进入稳定性平台，而不是只放在硬件团队手册里，因为最终影响会传导到模型输出和用户体验。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>SDC</code></li>
 <li><code>hardware reliability</code></li>
 <li><code>quarantine</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>Silent Data Corruption (SDC) 工业界方案调研.docx</code></li>
 <li><code>数据面系统稳定性白皮书_（长期维护）_.docx</code></li>

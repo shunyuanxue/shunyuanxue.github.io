@@ -7,7 +7,7 @@
   <title>维护日志 · llm_memory</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="index.html">
       <span>llm_memory</span>
@@ -33,10 +33,11 @@
             <div class="term-row"><code>ingest</code><code>maintenance log</code><code>source pass</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
+<li>2026-06-01：升级为公开/私有双版本知识库；新增 <code>wiki/sources/extracted/</code> 原文转写层、私有 <code>private_site/</code> 构建和本地全文搜索，公开 <code>site/</code> 自动排除全文转写与 private detail。</li>
 <li>2026-05-31：新增原始文档分层索引，按 wiki 主题把 137 个原始 source documents 映射到关联中文页面、source pages、待归类队列和 OCR/低抽取复核队列。</li>
 <li>2026-05-28：重新 review 全部 wiki，将可见正文从“中文导读 + 英文主体”改为“中文主体 + 英文术语保留”，英文长句扫描从 668 行降到 0 行。</li>
 <li>2026-05-28：站点从文档侧栏布局改为 GitHub Pages/blog 形式，主页提供文章索引、推荐阅读、最近更新和分类目录。</li>
@@ -45,19 +46,19 @@
 <li>2026-05-26：补齐 SGLang/EPLB、DeepEP/StepMesh、硬件网络、DeepSeek、量化、解码优化、Agentic RL、VLA、稳定性与异构 serving 等 ingest pass。</li>
 <li>2026-05-25：建立 Karpathy-style raw/wiki/schema 结构，保留原始 <code>.docx</code>、<code>.pdf</code>、<code>.png</code> 和 <code>.drawio</code>，将 <code>wiki/</code> 作为维护知识层。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>ingest</code></li>
 <li><code>maintenance log</code></li>
 <li><code>source pass</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li>本页是综合/维护页面，不直接绑定单一源文件；具体证据请继续查看相关 source pages 与 <code>wiki/sources/catalog.md</code>。</li>
 </ul>

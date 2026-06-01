@@ -7,7 +7,7 @@
   <title>多角色服务自动扩缩容 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>HPA</code><code>HWA</code><code>KEDA</code><code>WarmPool</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>讨论 HPA/HWA、External metrics、Worker-level 指标、CronHPA、KEDA、warm pool 和 stateful scale-down。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>多角色 serving 的扩缩容对象不是单一 deployment，而是 prefill、decode、router、worker、expert pool、sandbox 等不同角色。</li>
 <li>HPA/HWA/KEDA/CronHPA/WarmPool 解决的维度不同：实时压力、硬件指标、队列长度、周期性流量和冷启动。</li>
@@ -43,20 +43,20 @@
 <li>缩容比扩容更危险，必须处理 drain、stateful cache、in-flight request、session stickiness 和 rollback。</li>
 <li>一个可靠方案通常需要 warm pool、冷启动预算、最小副本、峰值保护和按模型/租户的隔离策略。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>HPA</code></li>
 <li><code>HWA</code></li>
 <li><code>KEDA</code></li>
 <li><code>WarmPool</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>多角色 CRD 自动扩缩容.docx</code></li>
 <li><code>HPA 强依赖 Pod 分析.docx</code></li>

@@ -7,7 +7,7 @@
   <title>MoE 负载均衡与 EPLB · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>MoE</code><code>EPLB</code><code>expert parallelism</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>说明专家并行中的负载不均、冗余专家、在线 EPLB、runtime migration 和 serving-path 里的专家放置问题。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>MoE serving 的瓶颈常来自 expert 负载不均，而不是理论 FLOPS；热门 expert 会造成 dispatch/combine 排队和尾延迟。</li>
 <li>EPLB 通过在线统计、冗余 expert、重映射或迁移，把 expert placement 放进 serving control loop。</li>
@@ -43,19 +43,19 @@
 <li>冗余 expert 可以降低热点，但会增加显存和一致性成本；迁移可以提升均衡度，但会带来拓扑重建和短期抖动。</li>
 <li>MoE 调优应和 DeepEP、DP Attention、PD layout、autoscaling 联合评估，单独看 expert 平均负载容易误判。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>MoE</code></li>
 <li><code>EPLB</code></li>
 <li><code>expert parallelism</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>MoE并行负载均衡：EPLB的深度解析与可视化.docx</code></li>
 <li><code>lark_docs/MoE并行负载均衡：EPLB的深度解析与可视化.docx</code></li>

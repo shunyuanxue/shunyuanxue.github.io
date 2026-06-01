@@ -7,7 +7,7 @@
   <title>硬件与集群网络 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>GPU</code><code>NPU</code><code>IB</code><code>RDMA</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>覆盖 GPU/NPU 资源池、IB/RDMA、拓扑亲和、scale-up/scale-out、训练/推理流量和硬件性能建模。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>硬件与网络决定 serving/training 的真实上限：GPU/NPU 算力、HBM、NVLink、IB/RDMA、PCIe 和机架拓扑都会改变系统设计。</li>
 <li>PD、EP、A/F 分离、多角色 serving 会把模型图切成跨设备/跨节点的数据流，网络不再只是背景资源。</li>
@@ -43,20 +43,20 @@
 <li>IB Sharp、RDMA、NVSHMEM、Hopper/FP8 等能力只有在 runtime 和通信库正确使用时才会转化为端到端收益。</li>
 <li>硬件评估要同时记录 MFU、带宽利用、tail latency、重试、故障率和隔离策略，避免只看单机 benchmark。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>GPU</code></li>
 <li><code>NPU</code></li>
 <li><code>IB</code></li>
 <li><code>RDMA</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>25年GPU卡网络架构讨论稿.docx</code></li>
 <li><code>方舟GPU资源集群方案.docx</code></li>

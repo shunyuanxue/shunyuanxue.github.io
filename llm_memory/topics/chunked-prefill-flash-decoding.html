@@ -7,7 +7,7 @@
   <title>Chunked Prefill 与 Flash Decoding · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>Chunked Prefill</code><code>Flash Decoding</code><code>LSE merge</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>说明长 prompt prefill 切块、decode attention block 切分，以及 softmax/LSE merge 正确性。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>Chunked Prefill 把长 prompt 拆成多个可调度片段，使长上下文请求不再独占一次完整 prefill step。</li>
 <li>Flash Decoding 把 decode attention 按 KV block 切分并合并 softmax/LSE，核心要求是数值正确性和 block 合并顺序稳定。</li>
@@ -43,19 +43,19 @@
 <li>长上下文场景下，收益来自减少尾部阻塞、提升 batch 混合能力、降低单请求对显存和调度窗口的占用。</li>
 <li>风险主要在边界条件：mask、position、LSE merge、KV block 生命周期和失败重试都必须和普通 prefill/decode 保持一致。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>Chunked Prefill</code></li>
 <li><code>Flash Decoding</code></li>
 <li><code>LSE merge</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>lark_docs/ChunkedPrefill&amp;FlashDecoding原理.docx</code></li>
 </ul>

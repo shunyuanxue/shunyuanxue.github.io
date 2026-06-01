@@ -7,7 +7,7 @@
   <title>Agentic RL 训练框架 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>verl</code><code>VeOmni</code><code>Slime</code><code>Rollout Buffer</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>比较 verl、VeOmni、Slime、Alphaseed/Swalm 在 rollout buffer、异步训练、Model Engine 和一致性协议上的差异。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>verl、VeOmni、Slime、Alphaseed/Swalm 都在处理同一个问题：训练引擎与 rollout runtime 如何解耦又保持一致。</li>
 <li>Slime 强调 server-based rollout 和 Rollout Buffer，使训练和生成可以异步推进；代价是版本一致性和 buffer 语义更复杂。</li>
@@ -43,20 +43,20 @@
 <li>Alphaseed/Swalm 的 in-flight weight update 说明权重版本、session 边界、正在生成的轨迹和 evaluation replay 必须有明确协议。</li>
 <li>框架选择要按 rollout 规模、tool/sandbox 复杂度、异步程度、debug 能力和数据治理能力来判断。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>verl</code></li>
 <li><code>VeOmni</code></li>
 <li><code>Slime</code></li>
 <li><code>Rollout Buffer</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>VeOmni 做 RL 训练：与 verl 的集成架构、差异与工程保障深度分析.docx</code></li>
 <li><code>lark_docs/Slime：面向Agent RL场景的大规模后训练框架.docx</code></li>

@@ -7,7 +7,7 @@
   <title>FlashMLA 与 Ulysses/SPTP · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>FlashMLA</code><code>Ulysses</code><code>SPTP</code><code>Hopper</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>关注 MLA decode kernel、Hopper 调度、KV paging、Ulysses 序列并行和 MLA prefill 负载均衡。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>FlashMLA 关注 MLA decode kernel 的实际效率，核心在 KV paging、SM load balance、Hopper WGMMA/TMA 和 memory scheduling。</li>
 <li>Ulysses/SPTP 代表序列并行和张量并行在长上下文/MLA 场景下的组合方式，目标是平衡计算与通信。</li>
@@ -43,20 +43,20 @@
 <li>Hopper 特性只有在 tile、pipeline、TMA 和 occupancy 设计正确时才会释放，否则可能被 memory movement 吃掉。</li>
 <li>这类页面应作为 kernel/parallelism 层参考，向上连接 DeepSeek 性能模型，向下连接硬件网络页面。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>FlashMLA</code></li>
 <li><code>Ulysses</code></li>
 <li><code>SPTP</code></li>
 <li><code>Hopper</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>lark_docs/深度解析FlashMLA.docx</code></li>
 <li><code>lark_docs/推理Ulysses并行优化与DeepSeekV3V3.2实践.docx</code></li>

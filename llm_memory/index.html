@@ -7,7 +7,7 @@
   <title>Memory Wiki 索引 · llm_memory</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
-<body class="home">
+<body class="home public">
   <header class="site-header">
     <a class="site-brand" href="index.html">
       <span>llm_memory</span>
@@ -43,6 +43,8 @@
         </div>
         <input id="page-search" class="search" type="search" placeholder="搜索文章 / English terms" autocomplete="off">
       </section>
+
+      <section id="search-results" class="search-results" hidden></section>
 
       <section class="section">
         <div class="section-heading">
@@ -113,23 +115,23 @@
           <a href="log.html">查看维护日志</a>
         </div>
         <div class="latest-list">
-          <a class="post-card compact-card" href="log.html" data-search="维护日志 维护日志 记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。 ingest maintenance log source pass log maintenance">
-    <span class="card-meta">总览 · 2026-05-31</span>
-    <strong>维护日志</strong>
-    <span>记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。</span>
-    <div class="term-row"><code>ingest</code><code>maintenance log</code><code>source pass</code></div>
-  </a>
-<a class="post-card compact-card" href="sources/catalog.html" data-search="源文件目录 源文件目录 自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。 source catalog extraction duplicates sources catalog">
-    <span class="card-meta">源文档索引 · 2026-05-31</span>
+          <a class="post-card compact-card" href="sources/catalog.html" data-search="源文件目录 源文件目录 自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。 source catalog extraction duplicates sources catalog">
+    <span class="card-meta">源文档索引 · 2026-06-01</span>
     <strong>源文件目录</strong>
     <span>自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。</span>
     <div class="term-row"><code>source catalog</code><code>extraction</code><code>duplicates</code></div>
   </a>
 <a class="post-card compact-card" href="sources/classified-index.html" data-search="原始文档分层索引 原始文档分层索引 按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。 source taxonomy classification ocr wiki index sources taxonomy index">
-    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <span class="card-meta">源文档索引 · 2026-06-01</span>
     <strong>原始文档分层索引</strong>
     <span>按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。</span>
     <div class="term-row"><code>source taxonomy</code><code>classification</code><code>OCR</code></div>
+  </a>
+<a class="post-card compact-card" href="log.html" data-search="维护日志 维护日志 记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。 ingest maintenance log source pass log maintenance">
+    <span class="card-meta">总览 · 2026-05-31</span>
+    <strong>维护日志</strong>
+    <span>记录每轮资料摄取、页面重组和结论更新，方便 review 时知道哪些页面是新增、哪些结论被补强。</span>
+    <div class="term-row"><code>ingest</code><code>maintenance log</code><code>source pass</code></div>
   </a>
 <a class="post-card compact-card" href="sources/source-curation.html" data-search="源文件治理 源文件治理 记录重复源的优先级、低抽取/图片型源状态、pdf 文本抽取方法和剩余视觉复核工作。 source curation ocr dedup sources curation extraction-quality dedup">
     <span class="card-meta">源文档索引 · 2026-05-31</span>
@@ -451,13 +453,13 @@
     <div class="term-row"><code>Agentic RL</code><code>VeOmni</code><code>Slime</code></div>
   </a>
 <a class="post-card compact-card" href="sources/catalog.html" data-search="源文件目录 源文件目录 自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。 source catalog extraction duplicates sources catalog">
-    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <span class="card-meta">源文档索引 · 2026-06-01</span>
     <strong>源文件目录</strong>
     <span>自动生成的 source catalog，记录 137 个源文件、大小、标签、抽取质量、重复 basename 和低抽取备注。</span>
     <div class="term-row"><code>source catalog</code><code>extraction</code><code>duplicates</code></div>
   </a>
 <a class="post-card compact-card" href="sources/classified-index.html" data-search="原始文档分层索引 原始文档分层索引 按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。 source taxonomy classification ocr wiki index sources taxonomy index">
-    <span class="card-meta">源文档索引 · 2026-05-31</span>
+    <span class="card-meta">源文档索引 · 2026-06-01</span>
     <strong>原始文档分层索引</strong>
     <span>按照 wiki 主题边界，把 137 个原始 source documents 分门别类映射到中文 wiki 页面、source pages 和复核队列。</span>
     <div class="term-row"><code>source taxonomy</code><code>classification</code><code>OCR</code></div>
@@ -570,9 +572,9 @@
         <div class="section-heading">
           <h2>原 Wiki 索引正文</h2>
         </div>
-        <article class="markdown"><h2>摘要</h2>
+        <article class="markdown"><h2 id="摘要">摘要</h2>
 <p>这是 AI Infra memory 目录的中文主入口。页面保留英文系统名和术语，中文负责解释阅读路径、主题边界和后续维护状态。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>这个知识库的主线是把零散 source documents 收敛为可维护的中文 AI Infra blog，而不是替代原始文档。</li>
 <li>阅读顺序建议从总览开始，再进入推理服务、PD/KV、Agentic RL、异构 serving、稳定性和源文档治理。</li>
@@ -580,20 +582,20 @@
 <li>英文系统名和实现术语保留为检索键，例如 <code>vLLM</code>、<code>SGLang</code>、<code>KV Cache</code>、<code>PD Disaggregation</code>、<code>EPLB</code>。</li>
 <li>每篇页面都应能回答三个问题：它讨论什么系统边界、关键机制是什么、和哪些源文档/相关主题相连。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>AI Infra</code></li>
 <li><code>LLM Serving</code></li>
 <li><code>Agentic RL</code></li>
 <li><code>PD Disaggregation</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li>本页是综合/维护页面，不直接绑定单一源文件；具体证据请继续查看相关 source pages 与 <code>wiki/sources/catalog.md</code>。</li>
 </ul>

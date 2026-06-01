@@ -7,7 +7,7 @@
   <title>Agentic RL 基础设施 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>Agentic RL</code><code>rollout</code><code>sandbox</code><code>tool calling</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>把 rollout、sandbox、tool calling、reward、training loop 和模型权重同步看成一个多角色运行时系统。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>Agentic RL infra 把训练系统扩展为 online/semi-online rollout、tool calling、sandbox、环境服务、reward 和模型更新的闭环。</li>
 <li>核心不只是 RL algorithm API，而是跨模块运行时契约：权重同步、session lifecycle、环境 reset、trace identity 和失败分类。</li>
@@ -43,20 +43,20 @@
 <li>和预训练不同，Agentic RL 的瓶颈常在环境并发、工具调用稳定性、sandbox 隔离、reward 延迟和数据回流。</li>
 <li>平台设计应把 rollout、training、evaluation、artifact、debug 和 replay 统一进一个可追踪的数据面。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>Agentic RL</code></li>
 <li><code>rollout</code></li>
 <li><code>sandbox</code></li>
 <li><code>tool calling</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>RL_Agent Infra 总体架构深度分析.docx</code></li>
 <li><code>Agentic RL Infra：ROLL、ForgeRL、Seer 和ThunderAgent.docx</code></li>

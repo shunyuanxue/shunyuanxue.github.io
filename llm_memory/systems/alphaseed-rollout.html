@@ -7,7 +7,7 @@
   <title>Alphaseed Rollout · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>Alphaseed</code><code>rollout</code><code>half-async</code><code>weight sync</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>总结 Alphaseed 从 offline batch 到 online streaming、half-async、in-flight weight update 的演进。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>Alphaseed Rollout 的演进方向是从 offline batch 走向 online streaming、half-async 和 in-flight weight update。</li>
 <li>rollout server 要承担请求分发、轨迹收集、模型版本标注、reward 对齐和训练数据回流。</li>
@@ -43,20 +43,20 @@
 <li>in-flight weight update 必须定义 session 边界：哪些请求继续用旧权重，哪些请求切到新权重。</li>
 <li>调试时要优先看 weight version、request id、reward span、tool span 和 failure class。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>Alphaseed</code></li>
 <li><code>rollout</code></li>
 <li><code>half-async</code></li>
 <li><code>weight sync</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>Alphaseed Rollout Server方案.docx</code></li>
 <li><code>RL_Agent Infra 总体架构深度分析.docx</code></li>

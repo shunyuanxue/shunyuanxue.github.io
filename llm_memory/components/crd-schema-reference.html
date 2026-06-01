@@ -7,7 +7,7 @@
   <title>CRD Schema 参考 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>Application</code><code>WorkerSet</code><code>status</code><code>autoscaling</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>抽取 Application、Worker、Role、WorkerSet、status、autoscaling 字段，作为 schema 查询页。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>CRD schema 是多角色 serving 的契约文档，说明 Application、Worker、Role、WorkerSet 等对象如何表达业务拓扑。</li>
 <li>spec 侧描述期望：模型、镜像、资源、role、replica、network、storage、autoscaling 和更新策略。</li>
@@ -43,20 +43,20 @@
 <li>schema 应尽量稳定，把扩展点留给 policy、template 和 Conditions，避免频繁破坏兼容性。</li>
 <li>阅读本页时可把它当作实现 Operator、debug 控制面和制定平台 API 的字段索引。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>Application</code></li>
 <li><code>WorkerSet</code></li>
 <li><code>status</code></li>
 <li><code>autoscaling</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>分布式推理Operator设计文档.docx</code></li>
 <li><code>Worker状态管理和资源编排.docx</code></li>

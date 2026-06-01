@@ -7,7 +7,7 @@
   <title>KV Cache · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>KV Cache</code><code>PagedAttention</code><code>prefix cache</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>统一梳理 KV Cache 生命周期、放置、传输、prefix reuse、session teleport、量化、投机解码和可观测指标。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>KV Cache 是 serving 系统的共享约束，影响长上下文、prefix reuse、PD 分离、session 迁移、投机解码和 split-graph 执行。</li>
 <li>PagedAttention 类设计把 KV 管理抽象成 block allocator，调度器必须在 token budget 和 block budget 之间做联合决策。</li>
@@ -43,19 +43,19 @@
 <li>PD 或异构 serving 下，KV 的 owner、传输路径、生命周期和失败清理必须显式建模，不能只当作模型内部状态。</li>
 <li>可观测性至少要覆盖 cache hit/miss、block 使用率、eviction、fragmentation、transfer latency、rollback 和 cleanup failure。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>KV Cache</code></li>
 <li><code>PagedAttention</code></li>
 <li><code>prefix cache</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>xLLM 分图推理 &amp;&amp; KV Cache Store.docx</code></li>
 <li><code>Deep_ Cache-Aware LLM Session Teleport.docx</code></li>

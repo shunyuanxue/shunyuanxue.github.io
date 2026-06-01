@@ -7,7 +7,7 @@
   <title>LLM 维护规则 · llm_memory</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="index.html">
       <span>llm_memory</span>
@@ -36,7 +36,7 @@
           <div class="markdown"><p>This repository is an AI infrastructure memory archive. Treat the existing
 <code>.docx</code>, <code>.pdf</code>, <code>.png</code>, and <code>.drawio</code> files as source material, and treat
 <code>wiki/</code> as the maintained knowledge layer.</p>
-<h2>Working Contract</h2>
+<h2 id="working-contract">Working Contract</h2>
 <ul>
 <li>Start from <code>wiki/index.md</code> before answering broad questions.</li>
 <li>Prefer updating existing wiki pages over creating near-duplicate pages.</li>
@@ -50,7 +50,7 @@ in the page instead of pretending the text was fully parsed.</li>
 <li>Update <code>wiki/log.md</code> whenever a meaningful ingest, reorganization, or
 conclusion update is made.</li>
 </ul>
-<h2>Directory Contract</h2>
+<h2 id="directory-contract">Directory Contract</h2>
 <pre><code class="language-text">.
   README.md                  human entry point
   AGENTS.md                  rules for LLM-assisted maintenance
@@ -72,7 +72,7 @@ conclusion update is made.</li>
     extract_docx.py          docx text/headings extractor
     lint_wiki.py             lightweight wiki consistency checks
 </code></pre>
-<h2>Page Schema</h2>
+<h2 id="page-schema">Page Schema</h2>
 <p>Each maintained wiki page should start with YAML front matter:</p>
 <pre><code class="language-yaml">---
 title: Short title
@@ -92,7 +92,7 @@ sources:
 <li><code>Open Questions</code></li>
 <li><code>Source Notes</code></li>
 </ol>
-<h2>Ingest Rules</h2>
+<h2 id="ingest-rules">Ingest Rules</h2>
 <ul>
 <li>Keep raw extraction separate from synthesis. Source files explain what was
 said; wiki pages explain what it means and how it connects.</li>

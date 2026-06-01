@@ -7,7 +7,7 @@
   <title>Operator 与 CRD 编排 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>Operator</code><code>CRD</code><code>Worker</code><code>Role</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>推理多角色、多 shard、多 Worker 的 Kubernetes-style 控制面抽象和生命周期管理。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>Operator/CRD 把多角色推理服务声明化，使 Application、WorkerSet、Role、Worker 等资源可以被控制器持续调谐。</li>
 <li>多角色 serving 不能只靠 Deployment/Service，需要表达 shard、replica mode、pooled mode、role dependency 和 stateful lifecycle。</li>
@@ -43,20 +43,20 @@
 <li>CRD 设计应避免把所有字段塞进一个大 spec，而要按角色、网络、资源、状态和策略分层。</li>
 <li>Operator 的价值在于把复杂运维动作变成可审计、可重试、可回滚的状态机。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>Operator</code></li>
 <li><code>CRD</code></li>
 <li><code>Worker</code></li>
 <li><code>Role</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>分布式推理Operator设计文档.docx</code></li>
 <li><code>分布式推理CRD概念设计.docx</code></li>

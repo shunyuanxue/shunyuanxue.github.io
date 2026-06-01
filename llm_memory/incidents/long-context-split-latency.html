@@ -7,7 +7,7 @@
   <title>长上下文分图延迟事故 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>incident</code><code>split-graph</code><code>timeout</code><code>KV cleanup</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>复盘 28K-128K 长文总结分图服务不可用事故，强调 RPC timeout、KV cleanup 和控制面容错。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>长上下文分图延迟事故暴露的问题不是单个 timeout，而是分图服务、RPC、KV cleanup、重试语义和控制面状态不一致的组合。</li>
 <li>28K-128K 长文总结这类请求会放大 prefill、KV、网络和 scheduler 的尾部风险。</li>
@@ -43,20 +43,20 @@
 <li>事故复盘应记录请求输入长度、分图阶段、RPC timeout、cleanup 结果、worker 状态和用户可见错误。</li>
 <li>修复方向包括更细的超时分层、幂等协议、失败清理、drain/restart 策略和端到端 trace。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>incident</code></li>
 <li><code>split-graph</code></li>
 <li><code>timeout</code></li>
 <li><code>KV cleanup</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>分图服务延时高导致包28~128k长文总结不可用 复盘.docx</code></li>
 <li><code>长文分图稳定性保障方案.docx</code></li>

@@ -7,7 +7,7 @@
   <title>vLLM Scheduler · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>vLLM</code><code>scheduler</code><code>resource budget</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>解释 vLLM V1 scheduler 的 waiting/running queues、resource budget、priority 和 prefill/decode 约束。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>vLLM scheduler 决定每个 engine step 计算哪些请求和哪些 token，它是吞吐、延迟和显存压力之间的协调器。</li>
 <li>核心队列通常包括 waiting 与 running；调度输出受 token budget、KV block budget、preemption、chunked prefill 和 speculative state 约束。</li>
@@ -43,19 +43,19 @@
 <li>优先级调度不能只做队列排序，还要定义抢占、starvation 保护、SLO class、tenant quota 和 recompute 成本。</li>
 <li>在 PD serving 中，prefill scheduler 和 decode scheduler 的目标不同，必须通过 router 和 KV manager 交换容量与状态。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>vLLM</code></li>
 <li><code>scheduler</code></li>
 <li><code>resource budget</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>lark_docs/vLLM_V1_Scheduler的调度逻辑&amp;优先级分析.docx</code></li>
 <li><code>lark_docs/vLLM V1 KV cache 管理机制.docx</code></li>

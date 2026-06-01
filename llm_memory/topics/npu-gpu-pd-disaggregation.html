@@ -7,7 +7,7 @@
   <title>NPU/GPU 异构 PD 分离 · llm_memory</title>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
-<body class="article">
+<body class="article public">
   <header class="site-header">
     <a class="site-brand" href="../index.html">
       <span>llm_memory</span>
@@ -33,9 +33,9 @@
             <div class="term-row"><code>910B</code><code>H20</code><code>PDCCL</code><code>LayerWise transfer</code></div>
           </header>
           <div class="body-label">中文正文（保留英文术语）</div>
-          <div class="markdown"><h2>摘要</h2>
+          <div class="markdown"><h2 id="摘要">摘要</h2>
 <p>基于 Launch Review 的 910B/H20 异构 prefill/decode：KV 转换、PDCCL、LayerWise 传输、拓扑亲和和 NPU 计算优化。</p>
-<h2>中文正文</h2>
+<h2 id="中文正文">中文正文</h2>
 <ul>
 <li>NPU/GPU 异构 PD 分离把 910B 等 NPU 资源用于 prefill，把 H20 等 GPU 资源用于 decode，以匹配不同阶段的计算/带宽特征。</li>
 <li>异构边界带来额外问题：KV 表示转换、数据布局、传输协议、拓扑亲和和跨设备数值一致性。</li>
@@ -43,20 +43,20 @@
 <li>NPU 侧优化不只是算子加速，还包括 attention/MLA 形态、cache layout、pipeline overlap 和 failure isolation。</li>
 <li>评估时要同时看端到端 TTFT/TPOT、NPU/GPU 利用率、跨池网络带宽、失败恢复和灰度切换成本。</li>
 </ul>
-<h2>阅读和维护建议</h2>
+<h2 id="阅读和维护建议">阅读和维护建议</h2>
 <ul>
 <li>先把本页当作中文结论层阅读；需要实现细节、原始数字或图示时，再回到下方 source documents。</li>
 <li>英文术语保留是为了方便继续搜索源码、论文、PR、issue 和内部文档，不表示正文仍以英文为主。</li>
 <li>如果后续新增资料与本页结论冲突，应保留两种说法并在来源说明里标记差异。</li>
 </ul>
-<h2>英文术语</h2>
+<h2 id="英文术语">英文术语</h2>
 <ul>
 <li><code>910B</code></li>
 <li><code>H20</code></li>
 <li><code>PDCCL</code></li>
 <li><code>LayerWise transfer</code></li>
 </ul>
-<h2>来源说明</h2>
+<h2 id="来源说明">来源说明</h2>
 <ul>
 <li><code>NPU异构PD分离 Launch Review Round-1.pdf</code></li>
 <li><code>Report_ Inferobust系统深度分析.docx</code></li>
